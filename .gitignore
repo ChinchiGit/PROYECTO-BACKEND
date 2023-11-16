@@ -1,0 +1,8 @@
+#personal vs code config
+.vscode
+
+#keys and secrets
+.env
+
+#too much modules space XD
+node_modules
