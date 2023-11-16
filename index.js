@@ -1,3 +1,5 @@
+//for testing scafolding , later move to sql controller
+require('./config/db_pgsql');
 const express = require('express')
 const app = express()
 const port = 3000
