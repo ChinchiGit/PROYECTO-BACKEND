@@ -10,8 +10,8 @@ mainRouter.use(filmRoutes)
 mainRouter.use(loginRoutes)
 
 // Middlewares
-const error404 = require('./middlewares/error404');
-const morgan = require('./middlewares/morgan');
+const error404 = require('../middlewares/error404');
+const morgan = require('../middlewares/morgan');
 
 // Logger
 mainRouter.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
