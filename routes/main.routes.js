@@ -29,4 +29,4 @@ mainRouter.get('/index', (req, res) => {
 // Para rutas no existentes
 mainRouter.use('*',error404);
 
-module.exports = ejercicio1Router
+module.exports = mainRouter
