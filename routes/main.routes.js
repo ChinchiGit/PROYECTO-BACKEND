@@ -1,13 +1,11 @@
 //index , 404 ... y los uses de los demas routers
 const mainRouter = require('express').Router()
 
-const dashboardRoutes = require('./dashboard.routes')
-const filmRoutes = require('./film.routes')
-const loginRoutes = require('./login.routes')
+const webRoutes = require('./web.routes/web.routes')
+const apiRoutes = require('./api.routes/api.routes')
 
-mainRouter.use(dashboardRoutes)
-mainRouter.use(filmRoutes)
-mainRouter.use(loginRoutes)
+mainRouter.use(webRoutes)
+mainRouter.use('/api',apiRoutes)
 
 // Middlewares
 const error404 = require('../middlewares/error404');
