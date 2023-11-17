@@ -1,0 +1,28 @@
+doctype html
+html
+   head
+      title = "Films API - Home"
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1 Bienvenido a FILM API 
+            
+        main 
+            section 
+                article 
+                    h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
+                    form(action="", method="post")  
+                        input(type="text" name="email")
+                        input(type="text" name="password")
+                        input(type="submit" value="Login") 
+                    article 
+                        a(id="recuperarPasword" href="")
+            section 
+                button(id="googleLogin") GOOGLE LOGIN
+            section 
+                h4 Si no tienes cuenta, regístraté aquí.
+                button(id="registrar")
+           
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
