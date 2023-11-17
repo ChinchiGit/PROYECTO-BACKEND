@@ -1,3 +1,7 @@
+//for testing scafolding , later move to corresponding  sql controller
+require('./config/db_pgsql');
+require('./config/db_mongo');
+
 const express = require('express')
 const app = express()
 const port = 3000

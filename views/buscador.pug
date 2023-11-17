@@ -1,0 +1,18 @@
+doctype html
+html
+   head
+      title = "Films API - Busca tu película"
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1 Buscador de Películas
+            
+        main 
+            h3 Introdude el título de la película que quieres consultar 
+            form(action="", method="post") 
+                input(type="text" name="tituloBuscar")
+                input(type="submit")
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

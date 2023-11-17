@@ -8,8 +8,8 @@ mainRouter.use(webRoutes)
 mainRouter.use('/api',apiRoutes)
 
 // Middlewares
-const error404 = require('./middlewares/error404');
-const morgan = require('./middlewares/morgan');
+const error404 = require('../middlewares/error404');
+const morgan = require('../middlewares/morgan');
 
 // Logger
 mainRouter.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
@@ -27,4 +27,4 @@ mainRouter.get('/index', (req, res) => {
 // Para rutas no existentes
 mainRouter.use('*',error404);
 
-module.exports = ejercicio1Router
+module.exports = mainRouter

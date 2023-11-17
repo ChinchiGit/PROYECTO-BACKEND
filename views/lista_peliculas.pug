@@ -1,0 +1,30 @@
+doctype html
+html
+   head
+      title = "Films API - Listado películas"
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1 Listado de Películas
+            
+        main 
+            h3 Introdude el título de la película que quieres consultar 
+            form(action="", method="post") 
+                input(type="text" name="tituloBuscar")
+                input(type="submit")
+//-FOR EACH
+/        
+            section(class ="contenedorPelis")
+                article() 
+                    h4 Título: 
+                    p Director:
+                article 
+                    button(id="detalles") Ver detalles 
+                    button(id="agregarFavoritos") Añadir a MIS PELÍCULAS
+
+
+                
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
