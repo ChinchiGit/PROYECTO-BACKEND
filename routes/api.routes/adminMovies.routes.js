@@ -10,7 +10,7 @@ adminMoviesRoutes.get('/adminMovies',adminMoviesController.readAdminMovies)
 
 adminMoviesRoutes.post('/adminMovies',adminMoviesController.createAdminMovies)
 
-adminMoviesRoutes.put('/adminMovies',adminMoviesController.updateAdminMovies)
+adminMoviesRoutes.put('/adminMovies/:title',adminMoviesController.updateAdminMovies)
 
 adminMoviesRoutes.delete('/adminMovies',adminMoviesController.deleteAdminMovies)
 
