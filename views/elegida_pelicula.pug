@@ -1,0 +1,31 @@
+doctype html
+html
+   head
+      title = "Films API - Película Elegida"
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1  Película seleccionada 
+            
+        main 
+            section(class ="contenedorPelis")
+                article() 
+                    h4 Título: 
+                    p Director:
+                    p Año:
+                    p Género
+                    p Duración
+                    img(src="", alt="")
+                article(id="críticas")
+
+
+                article(id="botones") 
+                    button(id="detalles") Ver detalles 
+                    button(id="agregarFavoritos") Añadir a MIS PELÍCULAS
+
+
+                
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

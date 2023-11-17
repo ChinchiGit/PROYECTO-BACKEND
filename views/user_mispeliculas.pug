@@ -1,0 +1,28 @@
+doctype html
+html
+   head
+      title = "Película Elegida"
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1  Película seleccionada 
+            
+        main 
+
+//-FOR EACH
+/
+            section(class ="contenedorPelis")
+                article() 
+                    h4 Título: 
+                    p Director:
+
+                article(id="botones") 
+                    button(id="detalles") Ver detalles 
+                    button(id="eliminarFavoritos") Eliminar de MIS PELÍCULAS
+
+
+                
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
