@@ -1,0 +1,23 @@
+doctype html
+html
+   head
+      title = "Films API - Homepage"
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1 Busca tu película 
+            
+        main 
+            section(id="buscador")
+                form(action="", method="post" id="searchAndLogin")  
+                    label(for='movie') Película:
+                    input#movie(type='text', placeholder='Película' name='movie')
+                    button(type="submit", name="searchBtn") Search
+                article(id="loginHome")
+                    a(href="/login") 
+                        button(type='button' id="login") Sign In / Registro
+
+           
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
