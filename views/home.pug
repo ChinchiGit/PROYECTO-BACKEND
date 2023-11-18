@@ -1,24 +1,22 @@
 doctype html
 html
    head
-      title = "Films API - Home"
+      title = "Films API - Homepage"
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
-            h1 Bienvenido a FILM API 
+            h1 Busca tu película 
             
         main 
-            section 
-                h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
-                form(action="", method="post")  
-                    input(type="text" name="email")
-                    input(type="text" name="password")
-                    input(type="submit" value="Login") 
-            section 
-                button(id="googleLogin")
-            section 
-                h4 Si no tienes cuenta, regístraté aquí.
-                button(id="registrar")
+            section(id="buscador")
+                form(action="", method="post" id="searchAndLogin")  
+                    label(for='movie') Película:
+                    input#movie(type='text', placeholder='Película' name='movie')
+                    button(type="submit", name="searchBtn") Search
+                article(id="loginHome")
+                    a(href="/login") 
+                        button(type='button' id="login") Sign In / Registro
+
            
         footer 
             include ./footer.pug
