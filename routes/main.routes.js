@@ -16,7 +16,7 @@ mainRouter.use(morgan(':method :host :status :param[id] - :response-time ms :bod
 
 //home
 mainRouter.get('/', (req, res) => {
-    res.send('Bienvenido al buscador de Películas')
+    res.status(200).render('./home')
   })
 
 //index
