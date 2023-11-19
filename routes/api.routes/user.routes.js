@@ -1,6 +1,6 @@
 // CRUD USERS
 const userRoutes = require('express').Router()
-const usersController = require('../../controllers/users.controllers')
+const usersController = require('../../controllers/user.controller')
 
 
 //[GET]/readUser - SQL
