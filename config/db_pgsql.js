@@ -1,8 +1,12 @@
+// require('../models/association.model')
+
 const { Sequelize } = require('sequelize');
 
 require('dotenv').config()
 
-const dbURI = `postgres://${process.env.SQL_USER}:${process.env.SQL_PASSWORD}@${process.env.SQL_HOST}/${process.env.SQL_NAME}?sslmode=rquire`
+// ?sslmode=require esto estaba al final de la URI 
+
+const dbURI = `postgres://${process.env.SQL_USER}:${process.env.SQL_PASSWORD}@${process.env.SQL_HOST}/${process.env.SQL_NAME}`
 
 const db = new Sequelize(dbURI);
 
