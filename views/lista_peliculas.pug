@@ -5,22 +5,26 @@ html
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
-            h1 Listado de Películas
+            h1 Resultados
             
         main 
-            h3 Introdude el título de la película que quieres consultar 
-            form(action="", method="post") 
-                input(type="text" name="tituloBuscar")
+            form(action="/search/", method="post") 
+                input(type="text" name="tituloBuscar" placeholder="Nueva búsqueda" )
                 input(type="submit")
-//-FOR EACH
-/        
-            section(class ="contenedorPelis")
-                article() 
-                    h4 Título: 
-                    p Director:
-                article 
-                    button(id="detalles") Ver detalles 
-                    button(id="agregarFavoritos") Añadir a MIS PELÍCULAS
+     
+            section 
+                each val in peliObtenida.Search
+                    section
+                        article 
+                            img(src=val.Poster)
+                        article
+                            div
+                                h3= val.Title
+                                p= val.Year
+                            div
+                                a(href="/film/details/"+val.imdbID)
+                                    button(id="detalles") Ver detalles 
+                                button(id="agregarFavoritos") Añadir a MIS PELÍCULAS
 
 
                 
