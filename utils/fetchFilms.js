@@ -4,7 +4,7 @@ dotenv.config();
 
 
 async function getFetch(title){
-    let endPoint = `https://www.omdbapi.com/?t=${title}&apikey=${process.env.API_KEY}`;
+    let endPoint = `https://www.omdbapi.com/?s=${title}&apikey=${process.env.API_KEY}`;
     let res = await fetch(endPoint)
         .then(response => response.json())
         .then(data => data);
@@ -17,4 +17,22 @@ async function getFetch(title){
 
 };
 
-module.exports = getFetch
+
+async function getDetailsFetch(id){
+    let endPoint = `https://www.omdbapi.com/?i=${id}&apikey=${process.env.API_KEY}`;
+    let res = await fetch(endPoint)
+        .then(response => response.json())
+        .then(data => data);
+    if(res.Response == 'False'){
+        return null;
+    }else{
+        return res
+    }    
+
+};
+
+
+module.exports = {
+    getFetch,
+    getDetailsFetch
+}
