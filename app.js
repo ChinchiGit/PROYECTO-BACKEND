@@ -6,6 +6,10 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// Configuración motor plantilla PUG
+app.set('view engine', 'pug');
+app.set('views','./views');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -1,5 +1,6 @@
 // CRUD USERS
 const userRoutes = require('express').Router()
+
 const usersController = require('../../controllers/user.controller')
 
 
