@@ -54,3 +54,9 @@ body {
   background-image: url('assets/imgs/background.jpg');
 }
 
+main{
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+

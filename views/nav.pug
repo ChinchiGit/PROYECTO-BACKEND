@@ -2,14 +2,21 @@ link(rel='stylesheet', type='text/css', href='/nav.styles.css')
 
 nav
     div 
-        img(src="/assets/imgs/logo_smile.png", alt="Smile Cinema Icon" id="smileIcon")
+        a(href="/") 
+            img(src="/assets/imgs/logo_smile.png", alt="Smile Cinema Icon" id="smileIcon")
+            
     div(id="desplegable")
         input(type="checkbox" id="menu")
         label(for="menu") ☰ 
 
         ul
-            li HOME
-            li BUSCAR 
-            li MIS PELÍCULAS
-            li DASHBOARD
+            li 
+                a(href="/") HOME
+            li 
+                a(href="/search") BUSCAR 
+            li 
+                a(href="/mispeliculas") MIS PELÍCULAS
+            li 
+                a(href="/dashboard") DASHBOARD
+                
 

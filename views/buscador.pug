@@ -8,9 +8,10 @@ html
 
    body
         header
-            h1 Buscador de Películas
-            
+            include ./nav.pug 
+           
         main 
+            h1 Buscador de Películas
             h3 Introdude el título de la película que quieres consultar 
             form(action="/search/", method="post") 
                 input.form-control(type='title', placeholder='titulo de peli' name='title')
