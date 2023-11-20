@@ -1,3 +1,4 @@
+const { getFetch, getDetailsFetch } = require('../utils/fetchFilms');
 
 const displaySearchScreen = (req,res)=>{
         res.render('buscador.pug')
@@ -12,7 +13,7 @@ const searchMovieBytitle = async (req, res) => {
             //limpiar videojuegos y demas del array de resultados
         } else {
             //introducir aqui busqueda en la BBDD MONGO creadas por el admin 
-            res.status(404).json({ message: "Film not found" })
+            // res.status(404).json({ message: "Film not found" })
         }
     }
     catch (error) {
