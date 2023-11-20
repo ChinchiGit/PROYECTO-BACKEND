@@ -1,6 +1,6 @@
 
 const displayLogin = (req,res)=>{
-
+    res.render('login')
 }
 
 const login = (req,res)=>{
