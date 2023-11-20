@@ -1,7 +1,7 @@
 doctype html
 html
    head
-      title = "Films API - Tu Dashboard - Admin"
+      title= "Films API - Tu Dashboard - Admin"
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
@@ -9,6 +9,7 @@ html
             
         main 
             section 
+                button(id="crear") TOTAL PELÍCULAS APP 
                 button(id="crear") CREAR 
                 button(id="editar") EDITAR 
                 button(id="borrar") BORRAR
@@ -21,7 +22,7 @@ html
                     label(for="director") Director
                     input(type="text" name="directorNew" required)
                     label(for="year") Año
-                    input(type="text" name="yearNew"required)
+                    input(type="text" name="yearNew" required)
                     label(for="genero") Género:
                     input(type="text" name="generoNew" required)
                     label(for="duracion") Duración:
@@ -30,7 +31,7 @@ html
                     input(type="url" name="posterNew")
                     input(type="submit" value="CREAR")
 
-            section(id="formularioEditar" )
+            section(id="formularioEditar")
                 form(action="", method="put" id="editarPeliAdmin")
                     h3 Introduce el título de la película que vas a editar: 
                     input(type="text" name="tituloViejo" required)
@@ -50,8 +51,8 @@ html
                     input(type="submit" value="EDITAR")
 
 
-            section(id="formularioBorrar" id="borrarPeliAdmin")
-                form(action="", method="delete")
+            section(id="formularioBorrar")
+                form(action="", method="delete" id="borrarPeliAdmin")
                     h3 Introduce el título de la película que vas a borrar
                     input(type="text" name="borrarPeli" required) 
                     input(type="submit" value="BORRAR")
