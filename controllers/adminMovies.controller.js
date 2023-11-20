@@ -1,10 +1,11 @@
-const adminMoviesModel = require('../models/adminMovies.model');
+const adminMoviesModel = require('../models/filmAdmin.model');
 
 const searchAdminMovie = async(req,res)=>{
     try {
-        const data = req.body;
+        const data = req.params;
         if(data.title){
-            let adminMovie = await adminMoviesModel.find({title:data.title})
+            obj = {Title:data.title}
+            let adminMovie = await adminMoviesModel.find(obj)
             res.status(200).json(adminMovie);
         }else{
             res.status(400).json({message: "formato de AdminMovie erroneo"});
