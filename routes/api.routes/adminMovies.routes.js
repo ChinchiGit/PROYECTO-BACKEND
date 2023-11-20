@@ -1,19 +1,19 @@
-// // CRUD adminMovies
-// const adminMoviesRoutes = require('express').Router()
-// const adminMoviesController = require('../../controllers/adminMovies.controllers')
+// CRUD adminMovies
+const adminMoviesRoutes = require('express').Router()
+const adminMoviesController = require('../../controllers/adminMovies.controllers')
 
-// //para recibir el trabajo delegado de la busqueda en mongo
-// adminMoviesRoutes.get('/adminMovies/:title',adminMoviesController.searchAdminMovie)
+//para recibir el trabajo delegado de la busqueda en mongo
+adminMoviesRoutes.get('/adminMovies/:title',adminMoviesController.searchAdminMovie)
 
-// //crud mongo
-// adminMoviesRoutes.get('/adminMovies',adminMoviesController.readAdminMovies)
+//crud mongo
+adminMoviesRoutes.get('/adminMovies',adminMoviesController.readAdminMovies)
 
-// adminMoviesRoutes.post('/adminMovies',adminMoviesController.createAdminMovies)
+adminMoviesRoutes.post('/adminMovies',adminMoviesController.createAdminMovies)
 
-// adminMoviesRoutes.put('/adminMovies/:title',adminMoviesController.updateAdminMovies)
+adminMoviesRoutes.put('/adminMovies/:title',adminMoviesController.updateAdminMovies)
 
-// adminMoviesRoutes.delete('/adminMovies',adminMoviesController.deleteAdminMovies)
+adminMoviesRoutes.delete('/adminMovies',adminMoviesController.deleteAdminMovies)
 
 
 
-// module.exports = adminMoviesRoutes
+module.exports = adminMoviesRoutes

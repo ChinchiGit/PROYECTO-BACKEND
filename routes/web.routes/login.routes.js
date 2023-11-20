@@ -1,14 +1,14 @@
-// const loginRouter = require('express').Router()
+const loginRouter = require('express').Router()
 
-// const loginController = require('../../controllers/login.controller')
+const loginController = require('../../controllers/login.controller')
 
-// loginRouter.get('/login',loginController.displayLogin)
+loginRouter.get('/login',loginController.displayLogin)
 
-// loginRouter.post('/login',loginController.login)
+loginRouter.post('/login',loginController.login)
 
-// loginRouter.post('/singup',loginController.login)´
+loginRouter.post('/singup',loginController.login)
 
-// loginRouter.post('/logout',loginController.logout)
+loginRouter.post('/logout',loginController.logout)
 
 
-// module.exports = loginRouter
+module.exports = loginRouter
