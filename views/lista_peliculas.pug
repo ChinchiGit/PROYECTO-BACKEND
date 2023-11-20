@@ -1,7 +1,7 @@
 doctype html
 html
    head
-      title = "Films API - Listado películas"
+      title= "Films API - Listado películas"
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
@@ -10,7 +10,10 @@ html
         main 
             form(action="/search/", method="post") 
                 input(type="text" name="tituloBuscar" placeholder="Nueva búsqueda" )
+                input.form-control(type='title', placeholder='titulo de peli' name='title')
                 input(type="submit")
+
+               
      
             section 
                 each val in peliObtenida.Search

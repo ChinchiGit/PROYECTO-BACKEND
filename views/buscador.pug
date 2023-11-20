@@ -1,7 +1,7 @@
 doctype html
 html
    head
-      title = "Films API - Busca tu película"
+      title= "Films API - Busca tu película"
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
@@ -11,6 +11,7 @@ html
             h3 Introdude el título de la película que quieres consultar 
             form(action="/search/", method="post") 
                 input(type="text" name="tituloBuscar")
+                input.form-control(type='title', placeholder='titulo de peli' name='title')
                 input(type="submit")
 
         footer 
