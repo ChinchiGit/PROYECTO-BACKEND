@@ -1,12 +1,11 @@
 
 const handleDashboard = (req,res)=>{
     const cookie = res.cookie()
-    // if('token' in cookie){
-    //     displayDashboardAdmin(req,res);
-    // }else{
-    //     displayDashboardUser(req,res);
-    // }
-    displayDashboardAdmin(req,res)
+    if('token' in cookie){
+        displayDashboardAdmin(req,res);
+    }else{
+        displayDashboardUser(req,res);
+    }
 }
 
 const displayDashboardUser = (req,res)=>{
