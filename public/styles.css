@@ -1,0 +1,53 @@
+:root {
+    --richBlack: #0c1618; 
+    --brunswickGreen:#0c1618;
+    --cornSilk: #faf4d3;
+    --golgMetallic: #d1ac00;
+    --hooverPeach : #f6be9a;
+  }
+  
+  @font-face {
+    font-family: Clover_bold;  
+    src: url(../public/assets/fonts/CloverDisplay-Bold.ttf);
+  }
+  
+  @font-face {
+    font-family: Clover_extrabold;  
+    src: url(../public/assets/fonts/CloverDisplay-ExtraBold.ttf);
+  }
+
+  @font-face {
+    font-family: Clover_extralight;  
+    src: url(../public/assets/fonts/CloverDisplay-ExtraLight.ttf);
+  }
+
+  @font-face {
+    font-family: Clover_light;  
+    src: url(../public/assets/fonts/CloverDisplay-Light.ttf);
+  }
+
+  @font-face {
+    font-family: Clover_medium;  
+    src: url(../public/assets/fonts/CloverDisplay-Medium.ttf);
+  }
+
+  @font-face {
+    font-family: Clover_regular;  
+    src: url(../public/assets/fonts/CloverDisplay-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: Clover_semibold;  
+    src: url(../public/assets/fonts/CloverDisplay-SemiBold.ttf);
+  }
+
+  @font-face {
+    font-family: Clover_thin;  
+    src: url(../public/assets/fonts/CloverDisplay-Thin.ttf);
+  }
+
+
+
+body{
+    background-image: url("../public/assets/imgs/background.jpg");
+}
