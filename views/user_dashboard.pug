@@ -7,9 +7,10 @@ html
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
+            include ./nav.pug 
+        main 
             h1 Bienvenido a tu espacio de usuario 
             include user_mispeliculas
-        main 
 
         footer 
             include ./footer.pug

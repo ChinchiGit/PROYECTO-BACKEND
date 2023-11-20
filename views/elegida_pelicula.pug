@@ -6,9 +6,10 @@ html
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
-            h1  Película seleccionada 
+            include ./nav.pug 
             
         main 
+            h1  Película seleccionada
             section
                 article 
                     h1 #{peliSeleccionada.Title}

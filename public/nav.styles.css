@@ -3,6 +3,7 @@ nav{
     display: flex;
     padding: 15px;
     justify-content: space-between;
+    font-family: Clover_extrabold;
 }
 
 ul {
@@ -16,7 +17,7 @@ input:checked~ul {
     display: block;
 }
 
-input {
+#menu {
     display: none;
 }
 
