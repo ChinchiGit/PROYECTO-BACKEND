@@ -18,10 +18,10 @@ html
      
             section 
                 each val in peliObtenida.Search
-                    section
+                    section(class="pelisLista")
                         article 
-                            img(src=val.Poster)
-                        article
+                            img(src=val.Poster class="posterLista")
+                        article(class="datosLista")
                             div
                                 h3= val.Title
                                 p= val.Year
