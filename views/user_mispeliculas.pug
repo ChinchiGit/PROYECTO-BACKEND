@@ -1,9 +1,12 @@
 each val in misPelisJs
-    section(class ="contenedorPelis")
-        article() 
-            h4 Título: #{val.Title}
-            p Director: #{val.Director}
-
-        article(id="botones") 
-            button(id="detalles") Ver detalles 
-            button(id="eliminarFavoritos") Eliminar de MIS PELÍCULAS
+    section(class="pelisLista")
+        article 
+            img(src=val.Poster class="posterLista")
+        article(class="datosLista")
+            div
+                h3= val.Title
+                p= val.Year
+            div
+                a(href="/search/details/"+val.imdbID)
+                    button(id="detalles") Ver detalles 
+                button(id="agregarFavoritos") Eliminar de MIS PELÍCULAS

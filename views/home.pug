@@ -10,13 +10,14 @@ html
         main 
             h1 Busca tu película
             section(id="buscador")
-                form(action="/search/", method="post" id="searchAndLogin")  
-                    label(for='movie') Película:
-                    input.form-control(type='title', placeholder='Película' name='title')
+                form(action="/search/", method="post" id="searchAndLogin" class="formBusqueda")  
+                    label(for='movie') Buscar película:
+                    input.form-control(type='title', placeholder='Título' name='title')
                     button(type="submit", name="searchBtn") Search
                 article(id="loginHome")
                     a(href="/login") 
                         button(type='button' id="login") Sign In / Registro
+                img(src="", alt="")
 
            
         footer 

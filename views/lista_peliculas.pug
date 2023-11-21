@@ -10,9 +10,9 @@ html
             
         main 
             h1 Resultados
-            form(action="/search/", method="post") 
-                input.form-control(type='title', placeholder='titulo de peli' name='title')
-                input(type="submit")
+            form(action="/search/", method="post", class="formBusqueda") 
+                input.form-control(type='title', placeholder='Nueva búsqueda' name='title')
+                button(type="submit") Search
 
                
      
