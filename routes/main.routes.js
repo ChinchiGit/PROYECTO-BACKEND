@@ -2,10 +2,10 @@
 const mainRouter = require('express').Router()
 
 const webRoutes = require('./web.routes/web.routes')
-//const apiRoutes = require('./api.routes/api.routes')
+const apiRoutes = require('./api.routes/api.routes')
 
 mainRouter.use(webRoutes)
-//mainRouter.use('/api',apiRoutes)
+mainRouter.use('/api',apiRoutes)
 
 // Middlewares
 const error404 = require('../middlewares/error404');
