@@ -13,11 +13,11 @@ html
                 article 
                     h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
                     form(action="", method="post")  
-                        input(type="text" name="email")
-                        input(type="text" name="password")
-                        input(type="submit" value="Login") 
+                        input.form-control(type="text" name="email" placeholder="email")
+                        input.form-control(type="text" name="password" placeholder="password")
+                        button(type="submit") Login 
                     article 
-                        a(id="recuperarPasword" href="")
+                        a(id="recuperarPasword" href="") Pincha aquí si has olvidado tu password.
             section 
                 button(id="googleLogin") GOOGLE LOGIN
             section 

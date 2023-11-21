@@ -6,6 +6,8 @@ loginRouter.get('/login',loginController.displayLogin)
 
 loginRouter.post('/login',loginController.login)
 
+loginRouter.get('/singup',loginController.displaySingUp)
+
 loginRouter.post('/singup',loginController.singUp)
 
 loginRouter.post('/logout',loginController.logout)
