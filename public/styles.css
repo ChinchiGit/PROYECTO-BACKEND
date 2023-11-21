@@ -76,6 +76,22 @@ button{
 
 }
 
+.esconder{
+  display:none;
+}
+
+.formBusqueda{
+  background-color: rgba(250, 244, 209, 0.7);
+  width: 60%;
+  margin:auto;
+  padding:15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+/* VISTA DETALLES PELÍCULA */
 
 .tarjetaPeli{
   background-color: rgba(250, 244, 209, 0.7);
@@ -114,21 +130,28 @@ div>h2{
   margin-top: 0px;
 }
 
-
+/* VISTA RESULTADOS BUSQUEDA */
 .pelisLista{
-  height: 190px;
+  height: 250px;
   background-color: rgba(250, 244, 209, 0.7);
   display:flex;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
+  max-width: 700px;
   width:90%;
-  
+ 
+}
+
+.datosLista{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .posterLista{
-  height: 190px;
+  height: 250px;
+  border-radius: 20px 0px 0px 20px; 
 }
 

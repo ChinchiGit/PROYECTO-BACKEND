@@ -1,21 +1,21 @@
-// selector
-var menu = document.querySelector('.hamburger');
+if (document.title === "Films API - Tu Dashboard - Admin") {
+	let crear = document.getElementById("crear");
+	let formularioCrear = document.getElementById("formularioCrear");
+	let editar = document.getElementById("editar");
+	let formularioEditar = document.getElementById("formularioEditar");
+	let borrar = document.getElementById("borrar");
+	let formularioBorrar = document.getElementById("formularioBorrar");
 
-// method
-function toggleMenu (event) {
-  this.classList.toggle('is-active');
-  document.querySelector( ".menuppal" ).classList.toggle("is_active");
-  event.preventDefault();
-}
+	crear.addEventListener("click", function () {
+		formularioCrear.classList.toggle("esconde");
+	})
 
-// event
-menu.addEventListener('click', toggleMenu, false);
+	editar.addEventListener("click", function () {
+		formularioEditar.classList.toggle("esconde");
+	})
 
-//Solución con jQUery
-/*$(document).ready(function(){
-	$('.hamburger').click(function() {
-		$('.hamburger').toggleClass('is-active');
-		$('.menuresponsive').toggleClass('is-active');
-		return false;
-	});
-});*/
+	borrar.addEventListener("click", function () {
+		formularioBorrar.classList.toggle("esconde");
+	})
+
+};
