@@ -36,12 +36,6 @@ const objectSchema = {
         type: String,
         required: true
     },
-    imdbID: {
-        type: Number,
-        required: true,
-        unique: true 
-
-    },
     Ratings: [
         {
             Value: {
