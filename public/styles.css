@@ -1,0 +1,134 @@
+:root {
+  --richBlack: #0c1618;
+  --brunswickGreen: #004643;
+  --cornSilk: rgb(250, 244, 209);
+  --golgMetallic: #d1ac00;
+  --hooverPeach: #f6be9a;
+}
+
+@font-face {
+  font-family: Clover_bold;
+  src: url('assets/fonts/CloverDisplay-Bold.ttf');
+}
+
+@font-face {
+  font-family: Clover_extrabold;
+  src: url('assets/fonts/CloverDisplay-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: Clover_extralight;
+  src: url('assets/fonts/CloverDisplay-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: Clover_light;
+  src: url('assets/fonts/CloverDisplay-Light.ttf');
+}
+
+@font-face {
+  font-family: Clover_medium;
+  src: url('assets/fonts/CloverDisplay-Medium.ttf');
+}
+
+@font-face {
+  font-family: Clover_regular;
+  src: url('assets/fonts/CloverDisplay-Regular.ttf');
+}
+
+@font-face {
+  font-family: Clover_semibold;
+  src: url('assets/fonts/CloverDisplay-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: Clover_thin;
+  src: url('assets/fonts/CloverDisplay-Thin.ttf');
+}
+
+html {
+  font-size: 20px;
+}
+
+
+body {
+  margin:0;
+  padding:0;
+  font-family: Clover_regular;
+  background-image: url('assets/imgs/background.jpg');
+}
+
+main{
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+
+h1{
+  font-family: Clover_extrabold;
+}
+
+button{
+  background-color: var(--golgMetallic);
+  padding:8px;
+  border-radius: 8px;
+  margin: 10px;
+
+}
+
+
+.tarjetaPeli{
+  background-color: rgba(250, 244, 209, 0.7);
+  padding:10px;
+  border-radius: 20px;
+  width:90%;
+  margin:auto;
+  display: flex;
+  align-items: center;
+  
+}
+
+.datosPelis{
+  text-align: left;
+  margin:10px;
+  width:60%;
+  display:flex;
+  align-items: center;
+  flex-direction: column
+}
+
+.poster{
+  width: 40%;
+}
+
+div>p{
+  background-color: var(--brunswickGreen);
+  color:white;
+  padding:10px;
+  margin-top:0;
+  margin-bottom:10px;
+  border-radius: 10px;
+}
+
+div>h2{
+  margin-top: 0px;
+}
+
+
+.pelisLista{
+  height: 190px;
+  background-color: rgba(250, 244, 209, 0.7);
+  display:flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  width:90%;
+  
+}
+
+.posterLista{
+  height: 190px;
+}
+

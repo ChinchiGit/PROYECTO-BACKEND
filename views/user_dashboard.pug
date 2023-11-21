@@ -1,13 +1,16 @@
 doctype html
 html
    head
-      title = "Films API - Tu Dashboard"
+      title= "Films API - Tu Dashboard"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+    
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
-            h1 Bienvenido a tu espacio de usuario 
-            
+            include ./nav.pug 
         main 
+            h1 Bienvenido a tu espacio de usuario 
+            include user_mispeliculas
 
         footer 
             include ./footer.pug

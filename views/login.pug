@@ -1,7 +1,8 @@
 doctype html
 html
    head
-      title = "Films API - Home"
+      title= "Films API - Home"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
@@ -21,7 +22,15 @@ html
                 button(id="googleLogin") GOOGLE LOGIN
             section 
                 h4 Si no tienes cuenta, regístraté aquí.
-                button(id="registrar")
+                button(id="registrar") Registro
+
+            //dummy section for development
+            section 
+                h4 Si no tienes cuenta, regístraté aquí.
+                a(href="/dashboard")
+                    button(id='dummy') Go to Dashboard Admin Passtrought 
+
+                
            
         footer 
             include ./footer.pug

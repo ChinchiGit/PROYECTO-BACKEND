@@ -1,17 +1,18 @@
 doctype html
 html
    head
-      title = "Films API - Homepage"
+      title= "Films API - Homepage"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
-            h1 Busca tu película 
-            
+            include ./nav.pug 
         main 
+            h1 Busca tu película
             section(id="buscador")
-                form(action="/serch/", method="post" id="searchAndLogin")  
+                form(action="/search/", method="post" id="searchAndLogin")  
                     label(for='movie') Película:
-                    input#movie(type='text', placeholder='Película' name='movie')
+                    input.form-control(type='title', placeholder='Película' name='title')
                     button(type="submit", name="searchBtn") Search
                 article(id="loginHome")
                     a(href="/login") 

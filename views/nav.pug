@@ -1,10 +1,22 @@
-ul
-    li
-        a(href="/") HOME
-    li
-        a(href="/") BUSCAR PELÍCULAS
-    li
-        a(href="/") MIS PELÍCULAS
-    li
-        a(href="/") MI DASHBOARD 
-    li
+link(rel='stylesheet', type='text/css', href='/nav.styles.css')
+
+nav
+    div 
+        a(href="/") 
+            img(src="/assets/imgs/logo_smile.png", alt="Smile Cinema Icon" id="smileIcon")
+            
+    div(id="desplegable")
+        input(type="checkbox" id="menu")
+        label(for="menu") ☰ 
+
+        ul
+            li 
+                a(href="/") HOME
+            li 
+                a(href="/search") BUSCAR 
+            li 
+                a(href="/mispeliculas") MIS PELÍCULAS
+            li 
+                a(href="/dashboard") DASHBOARD
+                
+
