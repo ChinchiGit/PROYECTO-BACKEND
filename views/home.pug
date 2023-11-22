@@ -8,12 +8,12 @@ html
         header
             include ./nav.pug 
         main 
-            h1 Busca tu película
             section(id="buscador")
-                form(action="/search/", method="post" id="searchAndLogin" class="formBusqueda")  
-                    label(for='movie') Buscar película:
-                    input.form-control(type='title', placeholder='Título' name='title')
-                    button(type="submit", name="searchBtn") Search
+                form(action="/search/", method="post" id="searchAndLogin" class="formBusqueda")
+                    h1 Busca tu película  
+                    label(for='movie')
+                    input.form-control(type='title', placeholder='   Título' name='title' id="searchBarBox")
+                    button(type="submit", name="searchBtn", id="searchBtn") Search
                 article(id="loginHome")
                     a(href="/login") 
                         button(type='button' id="login") Sign In / Registro
