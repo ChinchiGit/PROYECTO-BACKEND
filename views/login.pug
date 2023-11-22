@@ -14,27 +14,26 @@ html
                     article(class="login-form")
                         h1(class="login-title") Bienvenido a FILM API  
                         h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
-                        form(action="", method="post")  
+                        form(action="/dashboardUser", method="post")  
                             input(type="text" name="email" class="input-box" placeholder="example@gmail.com")
                             br
                             input(type="text" name="password" class="input-box" placeholder="*************")
                             br
                             input(type="submit" value="Login" id="login-btn")
                             br
-                            a(href="")
+                            a(href="/dashboardUser")
                             img(src="../assets/imgs/googleSignin.png" id="googleSignin") 
                     article 
                         a(id="recuperarPasword" href="") 
                     
                 section 
                     h4 Si no tienes cuenta, regístrate aquí
-                    button(id="registrar") Registro
+                    button(id="") Registro
 
-                //dummy section for development
                 section 
                     h4 Acceso admins
-                    a(href="/dashboard")
-                        button(id='dummy') Admin Passtrought 
+                    a(href="/dashboardAdmin")
+                        button(id='dasboardAdminBtn') Admin Passtrought 
 
                 
            

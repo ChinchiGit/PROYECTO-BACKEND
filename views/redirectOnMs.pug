@@ -1,0 +1,32 @@
+doctype html
+html
+   head
+      title= "Films API - Película Elegida"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            h1  Película #{texto} 
+        main 
+            h2#timer
+            if(pelicula)
+                section(class="tarjetaPeli")
+                    article(class="poster") 
+                        img(src= pelicula.Poster)
+                        // button(id="agregarFavoritos") Añadir a MIS PELÍCULAS
+                    article(class="datosPelis")
+                        div(class="campos")
+                            h2 #{pelicula.Title}
+                        div(class="botones") 
+                            p YEAR: #{pelicula.Year}
+                            p DIRECTOR: #{pelicula.Director}
+                            p GENERE: #{pelicula.Genre}
+                            p RUNTIME : #{pelicula.Runtime}
+                            p PLOT : #{pelicula.Plot}
+                            p ACTORS: #{pelicula.Actors}
+            else 
+                h2 razon #{texto}
+        footer 
+            include ./footer.pug
+
+            script(src='/redirector.js')
