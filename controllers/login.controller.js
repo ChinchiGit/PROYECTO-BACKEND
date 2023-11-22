@@ -1,5 +1,6 @@
 const admin = require('../config/firebase.config')
 
+
 const displayLogin = (req, res) => {
     res.render('login.pug')
 }
@@ -9,7 +10,8 @@ const login = async (req, res) => {
         console.log('dentro try login');
         console.log(req.body);
         // When the user signs in with email and password.
-        firebase.auth().signInWithEmailAndPassword('a@a.com', '1234').then(user => {
+        admin.auth().getUserByEmail()
+        .then(user => {
             // Get the user's ID token as it is needed to exchange for a session cookie.
             console.log(user);
             // return user.getIdToken().then(idToken => {
