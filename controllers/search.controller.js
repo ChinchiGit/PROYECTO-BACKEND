@@ -6,12 +6,18 @@ const displaySearchScreen = (req,res)=>{
 
 const searchMovieBytitle = async (req, res) => {
     try {
-        let peliObtenida = await getFetch(req.params.title)
-        console.log(peliObtenida);
-        if (peliObtenida !== null) {
-            res.render("lista_peliculas", {peliObtenida});
+        let resultados = await getFetch(req.params.title)
+        //console.log(peliObtenida);
+        if (resultados !== null) {
             //limpiar videojuegos y demas del array de resultados
+            let arrsearch = resultados['Search']
+            console.log('antes',arrsearch);
+            let pelis = arrsearch.filter((peli)=> peli.Type == 'movie')
+            resultados['Search'] = pelis
+            console.log('despues',arrsearch);
+            res.render("lista_peliculas", {resultados});
         } else {
+            
             //introducir aqui busqueda en la BBDD MONGO creadas por el admin 
             // res.status(404).json({ message: "Film not found" })
         }
