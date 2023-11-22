@@ -11,13 +11,13 @@ const searchMovieBytitle = async (req, res) => {
         if (resultados !== null) {
             //limpiar videojuegos y demas del array de resultados
             let arrsearch = resultados['Search']
-            console.log('antes',arrsearch);
+            //console.log('antes',arrsearch);
             let pelis = arrsearch.filter((peli)=> peli.Type == 'movie')
             resultados['Search'] = pelis
-            console.log('despues',arrsearch);
+            //console.log('despues',arrsearch);
             res.render("lista_peliculas", {resultados});
         } else {
-            
+
             //introducir aqui busqueda en la BBDD MONGO creadas por el admin 
             // res.status(404).json({ message: "Film not found" })
         }
