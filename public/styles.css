@@ -57,6 +57,16 @@ body {
   background-image: url("assets/imgs/background.jpg");
 }
 
+#menu-icon {
+  transition: 0.3s;
+}
+
+#menu-icon:hover {
+  background-color: #0c1618;
+  color: #d1ac00;
+  cursor: pointer;
+}
+
 a:link {
   color: #0c1618;
   text-decoration: none;
@@ -68,8 +78,7 @@ a:visited {
 }
 
 main {
-  width: 95%;
-  margin: auto;
+  width: 100%;
   text-align: center;
 }
 
@@ -90,8 +99,9 @@ button {
 
 .formBusqueda {
   background-color: rgba(250, 244, 209, 0.7);
-  width: 60%;
-  margin: auto;
+  color:#004643;
+  width: 90%;
+  margin: 15px;
   padding: 15px;
   border-radius: 20px;
   display: flex;
@@ -99,7 +109,20 @@ button {
   align-items: center;
 }
 
-/* VISTA DETALLES PELÍCULA */ 
+.form-control {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+#searchBarBox {
+  border-radius: 25px;
+  width: 500px;
+  height: 50px;
+}
+
+
+/* VISTA DETALLES PELÍCULA */
 
 .tarjetaPeli {
   background-color: rgba(250, 244, 209, 0.7);
@@ -159,4 +182,66 @@ div > h2 {
 .posterLista {
   height: 250px;
   border-radius: 20px 0px 0px 20px;
+}
+
+/* PÁGINA DE LOGIN */
+.login-title {
+  text-align: center;
+  font-size: 25px;
+}
+
+.login-container {
+  background-color: rgba(250, 244, 209, 0.7);
+  padding: 25px;
+  margin-top: 15px;
+  border-radius: 10%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box {
+  margin: 5px;
+}
+
+#login-btn {
+  transition: 0.3s;
+  background-color: var(--golgMetallic);
+  padding: 8px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+#login-btn:hover {
+  background-color: #0c1618;
+  color: #d1ac00;
+  cursor: pointer;
+}
+
+#googleSignin {
+  width: 150px;
+}
+
+#registrar {
+  margin-top: -15px;
+  transition: 0.3s;
+}
+
+#registrar:hover {
+  background-color: #0c1618;
+  color: #d1ac00;
+  cursor: pointer;
+}
+
+#dummy {
+  margin-top: -15px;
+  transition: 0.3s;
+}
+
+#dummy:hover {
+  background-color: #0c1618;
+  color: #d1ac00;
+  cursor: pointer;
 }

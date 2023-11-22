@@ -6,29 +6,35 @@ html
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
         header
-            h1 Bienvenido a FILM API 
+            include ./nav.pug
             
         main 
-            section 
-                article 
-                    h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
-                    form(action="", method="post")  
-                        input(type="text" name="email")
-                        input(type="text" name="password")
-                        input(type="submit" value="Login") 
+            section(class="login-container")
+                section 
+                    article(class="login-form")
+                        h1(class="login-title") Bienvenido a FILM API  
+                        h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
+                        form(action="", method="post")  
+                            input(type="text" name="email" class="input-box" placeholder="example@gmail.com")
+                            br
+                            input(type="text" name="password" class="input-box" placeholder="*************")
+                            br
+                            input(type="submit" value="Login" id="login-btn")
+                            br
+                            a(href="")
+                            img(src="../assets/imgs/googleSignin.png" id="googleSignin") 
                     article 
-                        a(id="recuperarPasword" href="")
-            section 
-                button(id="googleLogin") GOOGLE LOGIN
-            section 
-                h4 Si no tienes cuenta, regístraté aquí.
-                button(id="registrar") Registro
+                        a(id="recuperarPasword" href="") 
+                    
+                section 
+                    h4 Si no tienes cuenta, regístrate aquí
+                    button(id="registrar") Registro
 
-            //dummy section for development
-            section 
-                h4 Si no tienes cuenta, regístraté aquí.
-                a(href="/dashboard")
-                    button(id='dummy') Go to Dashboard Admin Passtrought 
+                //dummy section for development
+                section 
+                    h4 Acceso admins
+                    a(href="/dashboard")
+                        button(id='dummy') Admin Passtrought 
 
                 
            
