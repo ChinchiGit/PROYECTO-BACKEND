@@ -10,7 +10,8 @@ html
             
         main 
             section 
-                button(id="total") TOTAL PELÍCULAS APP 
+                a(href="adminMovies") 
+                    button(id="total") TOTAL PELÍCULAS APP 
                 button(id="crear") CREAR 
                 button(id="editar") EDITAR 
                 button(id="borrar") BORRAR
@@ -19,17 +20,23 @@ html
                 h3 Introduce los datos de la película que vas a añadir 
                 form(action="", method="post" id="crearPeliAdmin") 
                     label(for="titulo") Título
-                    input(type="text" name="tituloNew" required)
+                    input(type="text" name="Titulo" required)
+                    br
                     label(for="director") Director
-                    input(type="text" name="directorNew" required)
+                    input(type="text" name="Drector" required)
+                    br
                     label(for="year") Año
-                    input(type="text" name="yearNew" required)
+                    input(type="text" name="Year" required)
+                    br
                     label(for="genero") Género:
-                    input(type="text" name="generoNew" required)
+                    input(type="text" name="Gender" required)
+                    br
                     label(for="duracion") Duración:
-                    input(type="text" name="duracionNew" required)
-                    label(for="poster") Cartel:
-                    input(type="url" name="posterNew")
+                    input(type="text" name="Duration" required)
+                    br
+                    label(for="poster") Cartel (Url):
+                    input(type="url" name="Poster")
+                    br
                     input(type="submit" value="CREAR")
 
             section(id="formularioEditar" class="esconder")
