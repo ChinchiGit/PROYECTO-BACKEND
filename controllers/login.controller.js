@@ -1,42 +1,73 @@
+const admin = require('../config/firebase.config')
+
 
 const displayLogin = (req, res) => {
     res.render('login.pug')
 }
 
-const login = async (req, res) => {
-    const { email, password } = req.body;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            var user = userCredential.user;
-        })
-        .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
+const login = async (req, res) => {   
+    try {
+        console.log('dentro try login');
+        console.log(req.body);
+        // When the user signs in with email and password.
+        admin.auth().getUserByEmail()
+        .then(user => {
+            // Get the user's ID token as it is needed to exchange for a session cookie.
+            console.log(user);
+            // return user.getIdToken().then(idToken => {
+            //   // Session login endpoint is queried and the session cookie is set.
+            //   // CSRF protection should be taken into account.
+            //   // ...
+            //   const csrfToken = getCookie('csrfToken')
+            //   return postIdTokenToSessionLogin('/sessionLogin', idToken, csrfToken);
+            // });
+        }).then(() => {
+            // A page redirect would suffice as the persistence is set to NONE.
+            //return firebase.auth().signOut();
+        }).then(() => {
+            //window.location.assign('/');
         });
-    res.redirect('/dashboard');
+        
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-const displaySingUp = (req, res) => {
+const displaySignUp = (req, res) => {
+    console.log('llega a display singUP');
     res.render('user_registro.pug')
 }
 
-const singUp = async (req, res) => {
+const signUp = async (req, res) => {
+    console.log('llega a display postSingup');
     try {
-        const { email, username, password } = req.body;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+        console.log('try');
+        console.log('email',req.body.email,'password',req.body.password);
+        console.log('intento auth');
+        admin.auth().createUser({
+                email: req.body.email,
+                password: req.body.password,
+                emailVerified: false,
+                disabled: false
+            })
+            .then((userRecord) => {
                 // Signed in
-                var user = userCredential.user;
-                console.log(user);
+                console.log("llega ?");
+                //sacar id de aqui
+                console.log(userRecord);
             })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                let errorCode = error.code;
+                let errorMessage = error.message;
                 console.log(error);
             });
+        console.log('redirecion a home');
+        //crear user de sql
+        //guardar el token de user y redirigir a dashboard
         res.redirect('/');
     } catch (e) {
-        res.redirect('register');
+        console.log(e);
+        res.redirect('signup');
     }
 }
 
@@ -51,7 +82,7 @@ const logout = (req, res) => {
 module.exports = {
     displayLogin,
     login,
-    displaySingUp,
-    singUp,
+    displaySignUp,
+    signUp,
     logout
 }

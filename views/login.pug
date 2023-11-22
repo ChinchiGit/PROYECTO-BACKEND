@@ -23,10 +23,13 @@ html
                             a(href="")
                             img(src="../assets/imgs/googleSignin.png" id="googleSignin") 
                     article 
-                        a(id="recuperarPasword" href="") 
-                    
-                section 
-                    h4 Si no tienes cuenta, regístrate aquí
+                        a(id="recuperarPasword" href="") Pincha aquí si has olvidado tu password.
+            section 
+                a(href="/auth/google")
+                    button(id="googleLogin") GOOGLE LOGIN
+            section 
+                h4 Si no tienes cuenta, regístraté aquí.
+                a(href="/signup") 
                     button(id="registrar") Registro
 
                 //dummy section for development
