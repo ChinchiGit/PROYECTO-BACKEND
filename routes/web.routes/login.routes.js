@@ -2,6 +2,7 @@ const loginRouter = require('express').Router()
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const session = require("express-session");
+const usersModel = require("../../models/users.model");
 require("../../config/auth");
 
 const loginController = require('../../controllers/login.controller')
@@ -22,9 +23,18 @@ loginRouter.get("/google/callBack?",
     //Función de fallo
     passport.authenticate('google', { failureRedirect: '/auth/failure' }),
     //Función exitosa
-    (req, res) => {
+    async (req, res) => {
         //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
-
+        try {
+            //console.log(req.user._json)
+            console.log(req.user._json.email,req.user._json.sub,true)
+            const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
+            let answer = await usersModel.create(data);
+            res.status(201).json(answer);
+        } catch (error) {
+            console.log(`ERROR: ${error.stack}`);
+            res.status(400).json({ msj: `ERROR: ${error.stack}` });
+        }
         //Estos son los pasos para crear un token si la autenticación es exitosa
         const payload = {
             //save here data

@@ -1,4 +1,3 @@
-const admin = require('../config/firebase.config')
 
 
 const displayLogin = (req, res) => {
