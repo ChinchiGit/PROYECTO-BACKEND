@@ -49,11 +49,11 @@ const createAdminMovies = async (req,res)=>{
                 }
             }else{
                 let msg = 'error en creacion'
-                res.status(400).render('400',{message: msg})
+                res.status(400).render('400',{message: msg,lugar:'creacion peli'})
             }
         } catch (error) {
             let msg = 'error en creacion titulo de pelicula duplicado intentalo de nuevo'
-            res.status(400).render('400',{message: msg})
+            res.status(400).render('400',{message: msg,lugar:'creacion peli'})
         }
     }
     catch (error) {

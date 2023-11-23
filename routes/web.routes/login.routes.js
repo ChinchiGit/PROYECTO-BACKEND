@@ -5,7 +5,8 @@ const session = require("express-session");
 const usersModel = require("../../models/users.model");
 require("../../config/auth");
 
-const loginController = require('../../controllers/login.controller')
+const loginController = require('../../controllers/login.controller');
+const { render } = require('pug');
 
 loginRouter.get('/login', loginController.displayLogin)
 
@@ -29,8 +30,19 @@ loginRouter.get("/google/callBack?",
             //console.log(req.user._json)
             console.log(req.user._json.email,req.user._json.sub,true)
             const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
-            let answer = await usersModel.create(data);
-            //res.json(answer);
+
+            const tmpuser = await usersModel.findOne({email:_json.email})
+
+            if(tmpuser){
+                if(tmpuser.admin){
+                    res.redirect("/middleViewLogin");
+                }else{
+                    res.redirect("/dashboardUser");
+                }
+            }else{
+                let answer = await usersModel.create(data);
+                res.redirect("/dashboardUser");
+            }
         } catch (error) {
             console.log(`ERROR: ${error.stack}`);
             res.status(400).json({ msj: `ERROR: ${error.stack}` });
@@ -49,13 +61,12 @@ loginRouter.get("/google/callBack?",
         res.cookie("access-token", token, {
             httpOnly: true,
             sameSite: "strict",
-        }).redirect("/dashboardUser");
+        })
     });
 
 
 loginRouter.get("/dashboard", (req, res) => {
     res.send("Welcome to your dashboard! You are now authenticated with google! <br><br> <a href='/logout'>Click here to logout!</a>");
-
 })
 
 //Definimos una ruta en caso de que la autenticación falle.
@@ -72,6 +83,10 @@ loginRouter.get('/logout', (req, res) => {
     });
 
 });
+
+loginRouter.get('/middleViewLogin',(req,res)=>{
+    res.render('middleViewLogin')
+})
 
 
 module.exports = loginRouter
