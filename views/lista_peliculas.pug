@@ -27,8 +27,8 @@ html
                                 p= val.Year
                             div
                                 a(href="/search/details/"+val.imdbID)
-                                    button(id="detalles") Ver detalles 
-                                button(id="agregarFavoritos") Añadir a MIS PELÍCULAS
+                                    button(id="detalles") Ver detalles
+                                button( class="agregarFavoritos" value=val.imdbID) Añadir a MIS PELÍCULAS
 
 
                 
@@ -36,3 +36,4 @@ html
         footer 
             include ./footer.pug
         script(src='/script.js')
+        script(src='/favorites.js')
