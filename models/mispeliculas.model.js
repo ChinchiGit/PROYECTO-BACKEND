@@ -17,12 +17,15 @@ const Movies = db.define("Movies", {
     },
     idUser: {
         field: 'id_user',
-        type: DataTypes.UUID,
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    apiFilm: {
-        field: 'api_film',
-        type: DataTypes.BOOLEAN,
+    idFavMovie: {
+        field: 'id_fav_movie',
+        type: DataTypes.STRING,
+        allowNull: false
     },
+
 },
     {
         db,

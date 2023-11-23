@@ -15,10 +15,51 @@ loginRouter.get("/google/callBack?",
     //middleware pasport con funcion fallo
     passport.authenticate('google', { failureRedirect: '/auth/failure' }),
     //Función exitosa
-    loginController.signUp
-);
+    async (req, res) => {
 
-//for development
+        //Estos son los pasos para crear un token si la autenticación es exitosa
+        const payload = {
+            //save here data
+            id_user:req.user._json.sub,
+            check: true
+        };
+        const token = jwt.sign(payload, `secret_key`, {
+            expiresIn: "20m"
+        });
+
+        console.log(token);
+        //Almacenamos el token en las cookies
+        res.cookie("access-token", token, {
+            httpOnly: true,
+            sameSite: "strict",
+        })
+
+        //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
+        try {
+            console.log(req.user._json.email,req.user._json.sub,true)
+            const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
+            const tmpuser = await usersModel.findOne({ where: { email:data.email } })
+            //buscamos si existe el usuario
+            if(tmpuser){
+                //si exsite comprobamos si es admin o no
+                if(tmpuser.admin){
+                    res.redirect("/middleViewLogin");
+                }else{
+                    res.redirect("/dashboardUser");
+                }
+            }else{
+                //si no existe creamos user
+                //console.log('creacion user sql');
+                let answer = await usersModel.create(data);
+                res.redirect("/dashboardUser");
+            }
+        } catch (error) {
+            console.log(`ERROR: ${error.stack}`);
+            res.status(400).json({ msj: `ERROR: ${error.stack}` });
+        }        
+    });
+
+
 loginRouter.get("/dashboard", (req, res) => {
     res.send("Welcome to your dashboard! You are now authenticated with google! <br><br> <a href='/logout'>Click here to logout!</a>");
 })

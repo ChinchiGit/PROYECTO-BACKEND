@@ -23,10 +23,16 @@ const passport = require("passport");
 const session = require("express-session");
 require("./config/auth.js");
 
+const cookieParser = require("cookie-parser");
+
+
 //Inicializamos passport y la session de passport
 app.use(session({ secret: 'SECRET' }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+app.use(cookieParser());
 
 
 // Configuración motor plantilla PUG
