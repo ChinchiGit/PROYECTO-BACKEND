@@ -1,0 +1,16 @@
+doctype html
+html
+   head
+      title= `Films API - Error en ${lugar}`
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            include ./nav.pug
+            h1  No se ha podido crear la pelicula 
+        main 
+            section
+                p error en : #{message}
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

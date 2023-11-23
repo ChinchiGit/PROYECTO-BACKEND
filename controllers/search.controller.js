@@ -17,13 +17,7 @@ const searchMovieBytitle = async (req, res) => {
                 
             });
             res.render("lista_peliculas", {peliObtenida});
-            //limpiar videojuegos y demas del array de resultados
-            let arrsearch = resultados['Search']
-            //console.log('antes',arrsearch);
-            let pelis = arrsearch.filter((peli)=> peli.Type == 'movie')
-            resultados['Search'] = pelis
-            //console.log('despues',arrsearch);
-            res.render("lista_peliculas", {resultados});
+
         } else {
 
             //introducir aqui busqueda en la BBDD MONGO creadas por el admin 
