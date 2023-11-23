@@ -65,10 +65,15 @@ const updateAdminMovies = async (req,res)=>{
     //console.log('updateAdminMovies ?');
     try {
         const data = req.body
+        let peli = null
         //console.log(data);
-        let peli = await adminMoviesModel.findOne({Title:data.Title})
-        if(peli._id){
-            res.render('redirectOnMs',{texto:'NO editada , ya existe una pelicula con el titulo nuevo',pelicula:null});
+        try{
+            peli = await adminMoviesModel.findOne({Title:data.Title})
+        }catch(error){
+            console.log(`internal mongo error on find new title: ${error.stack}`);
+        }
+        if(peli){
+            res.render('redirectOnMs',{texto:'NO editada , no existe o el tiitulo nuevo esta utilizado por otra pelicula',pelicula:null});
         }else{
             if(data.oldTitle){
                 let {oldTitle,...newData}=data

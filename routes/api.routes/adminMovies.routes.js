@@ -31,9 +31,9 @@ adminMoviesRoutes.post('/adminMovies/put',adminMoviesController.updateAdminMovie
 adminMoviesRoutes.post('/adminMovies/delete',adminMoviesController.deleteAdminMovies)
 
 
-adminMoviesRoutes.put('/adminMovies',adminMoviesController.updateAdminMovies)
+//adminMoviesRoutes.put('/adminMovies',adminMoviesController.updateAdminMovies)
 
-adminMoviesRoutes.delete('/adminMovies',adminMoviesController.deleteAdminMovies)
+//adminMoviesRoutes.delete('/adminMovies',adminMoviesController.deleteAdminMovies)
 
 
 module.exports = adminMoviesRoutes
