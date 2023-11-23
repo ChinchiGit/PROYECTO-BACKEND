@@ -8,9 +8,11 @@
     "scripts": {
         "start": "node app.js",
         "dev": "nodemon app.js",
-        "test": "jest"
+        "test": "jest",
+        "generate-docs": "jsdoc -c ./jsdoc.json README.md"
     },
     "devDependencies": {
+        "jsdoc": "^4.0.2",
         "morgan": "^1.10.0",
         "nodemon": "^3.0.1"
     },

@@ -47,6 +47,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const mainRouter = require('./routes/main.routes')
 
+// Documentación JSDOC
+app.use('/api-jsdoc', express.static('./jsondocs/'));
+
 app.use(mainRouter)
 
 app.listen(port, () => {
