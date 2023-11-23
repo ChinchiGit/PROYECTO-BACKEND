@@ -47,9 +47,9 @@ const displayFilDetails = async (req, res) => {
         let peliSeleccionada = await getDetailsFetch(req.params.id)
         // console.log(peliObtenida);
         if (peliSeleccionada !== null) {
-            //insertar reviews de scrapper
+            //insertar reviews de scrapper , tarda un rato !! //vista esta en espera 
             let reviews = await getReviews(peliSeleccionada.imdbID)
-            
+            //console.log('render details');
             res.render("elegida_pelicula", {peliSeleccionada,reviews});
 
         } else {
