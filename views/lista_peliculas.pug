@@ -4,6 +4,7 @@ html
       title= "Films API - Listado películas"
       link(rel="stylesheet", type='text/css', href="/normalice.css")
       link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel='stylesheet', type='text/css', href='/loader.css')
       link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
    body
         header
@@ -33,9 +34,17 @@ html
                                 a(href="/search/details/"+val.imdbID)
                                     button(id="detalles") Ver detalles
                                 button( class="agregarFavoritos" id=val.imdbID value=val.imdbID) Añadir a MIS PELÍCULAS
+                                .loader.esconder
+                                    .bg
+                                        .circle
+                                        .circle
+                                        .circle
+                                        .circle
+                                        .circle    
                 
 
         footer 
             include ./footer.pug
         script(src='/script.js')
         script(src='/favorites.js')
+        script(src='/loading.js')
