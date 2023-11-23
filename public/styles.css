@@ -243,6 +243,7 @@ div > h2 {
 
 .posterLista {
   height: 250px;
+  max-width: 200px;
   border-radius: 20px 0px 0px 20px;
 }
 

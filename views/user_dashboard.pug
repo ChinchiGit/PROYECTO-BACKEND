@@ -14,7 +14,19 @@ html
                 article(class="aTitular")
                     img(src="/assets/imgs/icon04.png", alt="icono lupa" class="imgTitular")
                 h1(class="hTitular") Tu espacio de usuario 
-            include user_mispeliculas
+            section(class="login-container")
+
+                h3 ¡Hola! ¿Qué quieres hacer hoy? 
+
+                a(href="/search")
+                    button Buscar Películas
+
+                a(href="/api/mispeliculas")
+                    button (Ver MIS PELÍCULAS)
+                
+                a(href="/logout") 
+                    button LOGOUT
+            
 
         footer 
             include ./footer.pug

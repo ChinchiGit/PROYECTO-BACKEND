@@ -1,12 +1,38 @@
-each val in misPelisJs
-    section(class="pelisLista")
-        article 
-            img(src=val.Poster class="posterLista")
-        article(class="datosLista")
-            div
-                h3= val.Title
-                p= val.Year
-            div
-                a(href="/search/details/"+val.imdbID)
-                    button(id="detalles") Ver detalles 
-                button(id="agregarFavoritos") Eliminar de MIS PELÍCULAS
+doctype html
+html
+   head
+      title= "Films API - Mis películas"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+   body
+        header
+            include ./nav.pug 
+            
+        main 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon05.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Mis Películas
+
+     
+            section 
+                each val in peliSeleccionada
+                    section(class="pelisLista")
+                        article 
+                            img(src=val.Poster class="posterLista")
+                        article(class="datosLista")
+                            div
+                                h3= val.Title
+                                p= val.Year
+                            div
+                                a(href="/search/details/"+val.imdbID)
+                                    button(id="detalles") Ver detalles
+
+                                button( class="borrarFavoritos" id=val.imdbID value=val.imdbID) Borrar de MIS PELÍCULAS
+                
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
+        script(src='/deleteFavorite.js')

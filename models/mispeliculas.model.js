@@ -1,4 +1,4 @@
-// schemas/autores.js
+
 
 // Requires the object that represents our database
 const { db } = require('../config/db_pgsql');

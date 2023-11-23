@@ -6,7 +6,7 @@ const displayLogin = (req, res) => {
 }
 
 const displaySignUp = (req, res) => {
-    console.log('llega a display singUP');
+    //console.log('llega a display singUP');
     res.render('user_registro.pug')
 }
 
