@@ -6,9 +6,17 @@ const displaySearchScreen = (req,res)=>{
 
 const searchMovieBytitle = async (req, res) => {
     try {
-        let resultados = await getFetch(req.params.title)
-        //console.log(peliObtenida);
-        if (resultados !== null) {
+        let peliObtenida = await getFetch(req.params.title)
+        console.log(peliObtenida);
+        if (peliObtenida !== null) {
+            peliObtenida.Search.forEach(element => {
+                if(element.Poster == "N/A"){
+                    element.Poster="/assets/imgs/logo_smile.png"
+                }
+            peliObtenida.Search = peliObtenida.Search.filter(element => element.Type =="movie") 
+                
+            });
+            res.render("lista_peliculas", {peliObtenida});
             //limpiar videojuegos y demas del array de resultados
             let arrsearch = resultados['Search']
             //console.log('antes',arrsearch);

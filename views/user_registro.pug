@@ -5,11 +5,13 @@ html
       link(rel="stylesheet", type='text/css', href="/normalice.css")
       link(rel='stylesheet', type='text/css', href='/styles.css')
    body
-        header
-           
+        header 
             
         main 
-            h1 Regístrate en SMILE CINEMA 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon05.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Regístrate en SMILE CINEMA 
             section(id="formularioRegistro")
                 h3 Para crear tu cuenta introduce tu email y contraseña
                 form(action="/signup", method="post" id="registro")  
