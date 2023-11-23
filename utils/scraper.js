@@ -1,7 +1,9 @@
 const puppeteer = require('puppeteer')
 
 /** 
-* async method for finding review comments in imdb
+* @async
+* @method getReviews
+* @description for finding review comments in imdb
 * @param id alphanumeric string that corresponds to imdb inernals id
 * @returns array of comments type string or error string
 * @example scraper.getReviews('tt9140554')
