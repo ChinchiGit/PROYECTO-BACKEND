@@ -25,28 +25,7 @@ loginRouter.get("/google/callBack?",
     passport.authenticate('google', { failureRedirect: '/auth/failure' }),
     //Función exitosa
     async (req, res) => {
-        //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
-        try {
-            //console.log(req.user._json)
-            console.log(req.user._json.email,req.user._json.sub,true)
-            const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
 
-            const tmpuser = await usersModel.findOne({email:_json.email})
-
-            if(tmpuser){
-                if(tmpuser.admin){
-                    res.redirect("/middleViewLogin");
-                }else{
-                    res.redirect("/dashboardUser");
-                }
-            }else{
-                let answer = await usersModel.create(data);
-                res.redirect("/dashboardUser");
-            }
-        } catch (error) {
-            console.log(`ERROR: ${error.stack}`);
-            res.status(400).json({ msj: `ERROR: ${error.stack}` });
-        }
         //Estos son los pasos para crear un token si la autenticación es exitosa
         const payload = {
             //save here data
@@ -62,6 +41,30 @@ loginRouter.get("/google/callBack?",
             httpOnly: true,
             sameSite: "strict",
         })
+
+        //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
+        try {
+            console.log(req.user._json.email,req.user._json.sub,true)
+            const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
+            const tmpuser = await usersModel.findOne({ where: { email:data.email } })
+            //buscamos si existe el usuario
+            if(tmpuser){
+                //si exsite comprobamos si es admin o no
+                if(tmpuser.admin){
+                    res.redirect("/middleViewLogin");
+                }else{
+                    res.redirect("/dashboardUser");
+                }
+            }else{
+                //si no existe creamos user
+                //console.log('creacion user sql');
+                let answer = await usersModel.create(data);
+                res.redirect("/dashboardUser");
+            }
+        } catch (error) {
+            console.log(`ERROR: ${error.stack}`);
+            res.status(400).json({ msj: `ERROR: ${error.stack}` });
+        }        
     });
 
 
