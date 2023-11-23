@@ -1,27 +1,18 @@
 const loginRouter = require('express').Router()
-const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const session = require("express-session");
-const usersModel = require("../../models/users.model");
+
 require("../../config/auth");
 
 const loginController = require('../../controllers/login.controller');
-const { render } = require('pug');
 
 loginRouter.get('/login', loginController.displayLogin)
 
-loginRouter.post('/login', loginController.login)
-
 loginRouter.get('/signup', loginController.displaySignUp)
 
-loginRouter.post('/signup', loginController.signUp)
-
-loginRouter.post('/logout', loginController.logout)
-//
-
 loginRouter.get("/auth/google", passport.authenticate("google", { scope: ['email', 'profile'], prompt: "select_account" }));
+
 loginRouter.get("/google/callBack?",
-    //Función de fallo
+    //middleware pasport con funcion fallo
     passport.authenticate('google', { failureRedirect: '/auth/failure' }),
     //Función exitosa
     async (req, res) => {
@@ -79,14 +70,7 @@ loginRouter.get('/auth/failure', (req, res) => {
 });
 
 //Definimos la ruta de logout, donde eliminamos la sesión y limpiamos el token de las cookies.
-loginRouter.get('/logout', (req, res) => {
-    req.logout(function (err) {
-        if (err) { return next(err); }
-        req.session.destroy();
-        res.clearCookie("access-token").send('Goodbye! <br><br> <a href="/auth/google">Authenticate again</a>');
-    });
-
-});
+loginRouter.get('/logout', loginController.logout);
 
 loginRouter.get('/middleViewLogin',(req,res)=>{
     res.render('middleViewLogin')

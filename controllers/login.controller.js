@@ -1,35 +1,8 @@
-
+const usersModel = require("../models/users.model");
+const jwt = require("jsonwebtoken");
 
 const displayLogin = (req, res) => {
     res.render('login.pug')
-}
-
-const login = async (req, res) => {   
-    try {
-        console.log('dentro try login');
-        console.log(req.body);
-        // When the user signs in with email and password.
-        admin.auth().getUserByEmail()
-        .then(user => {
-            // Get the user's ID token as it is needed to exchange for a session cookie.
-            console.log(user);
-            // return user.getIdToken().then(idToken => {
-            //   // Session login endpoint is queried and the session cookie is set.
-            //   // CSRF protection should be taken into account.
-            //   // ...
-            //   const csrfToken = getCookie('csrfToken')
-            //   return postIdTokenToSessionLogin('/sessionLogin', idToken, csrfToken);
-            // });
-        }).then(() => {
-            // A page redirect would suffice as the persistence is set to NONE.
-            //return firebase.auth().signOut();
-        }).then(() => {
-            //window.location.assign('/');
-        });
-        
-    } catch (error) {
-        console.log(error);
-    }
 }
 
 const displaySignUp = (req, res) => {
@@ -38,49 +11,69 @@ const displaySignUp = (req, res) => {
 }
 
 const signUp = async (req, res) => {
-    console.log('llega a display postSingup');
+    //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
     try {
-        console.log('try');
-        console.log('email',req.body.email,'password',req.body.password);
-        console.log('intento auth');
-        admin.auth().createUser({
-                email: req.body.email,
-                password: req.body.password,
-                emailVerified: false,
-                disabled: false
-            })
-            .then((userRecord) => {
-                // Signed in
-                console.log("llega ?");
-                //sacar id de aqui
-                console.log(userRecord);
-            })
-            .catch((error) => {
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                console.log(error);
-            });
-        console.log('redirecion a home');
-        //crear user de sql
-        //guardar el token de user y redirigir a dashboard
-        res.redirect('/');
-    } catch (e) {
-        console.log(e);
-        res.redirect('signup');
+        //console.log(req.user._json)
+        //console.log(req.user._json.email,req.user._json.sub,true)
+        const data = {email:req.user._json.email,id:req.user._json.sub,admin:false}
+        let answer = await usersModel.create(data);
+        
+    } catch (error) {
+        console.log(`ERROR: ${error.stack}`);
+        res.status(400).json({ msj: `ERROR: ${error.stack}` });
     }
+    //Estos son los pasos para crear un token si la autenticación es exitosa
+    const payload = {
+        //save here data
+        check: true
+    };
+    const token = jwt.sign(payload, `secret_key`, {
+        expiresIn: "25m"
+    });
+
+    //console.log(token);
+    //Almacenamos el token en las cookies
+    res.cookie("access-token", token, {
+        httpOnly: true,
+        sameSite: "strict",
+    })
+
+    //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
+    try {
+        //console.log(req.user._json.email,req.user._json.sub,true)
+        const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
+        const tmpuser = await usersModel.findOne({ where: { email:data.email } })
+        //buscamos si existe el usuario
+        if(tmpuser){
+            //si exsite comprobamos si es admin o no
+            if(tmpuser.admin){
+                res.redirect("/middleViewLogin");
+            }else{
+                res.redirect("/dashboardUser");
+            }
+        }else{
+            //si no existe creamos user
+            //console.log('creacion user sql');
+            let answer = await usersModel.create(data);
+            res.redirect("/dashboardUser");
+        }
+    } catch (error) {
+        console.log(`ERROR: ${error.stack}`);
+        res.status(400).json({ msj: `ERROR: ${error.stack}` });
+    }        
 }
 
 const logout = (req, res) => {
-    firebase.auth().signOut().then(() => {
-        res.redirect('/login');
-    }).catch((error) => {
-        // An error happened.
-    });
-}
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        req.session.destroy();
+        res.clearCookie("access-token").render("logout")
+    }
+)};
+
 
 module.exports = {
     displayLogin,
-    login,
     displaySignUp,
     signUp,
     logout

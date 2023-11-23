@@ -11,7 +11,7 @@ adminMoviesRoutes.get('/adminMovies',async (req,res)=>{
             //console.log(resultados);
             res.render("lista_peliculas_admin",{resultados});
         } else {
-            console.log('error pelisadmin'); 
+            //console.log('error pelisadmin'); 
             res.status(404).json({ message: "Film not found" })
         }
     }

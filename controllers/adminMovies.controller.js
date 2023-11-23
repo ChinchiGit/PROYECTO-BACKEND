@@ -1,11 +1,10 @@
 const adminMoviesModel = require('../models/filmAdmin.model');
 
-const searchAdminMovie = async(req,res)=>{
+const searchAdminMovie = async(title)=>{
     // atiende peticion de busqueda de peli admin si no existe peli en fetch
     try {
-        const data = req.params;
-        if(data && data.title){
-            pelisAdmin = await adminMoviesModel.findOne({Title:data.Title})
+        if(title){
+            let pelisAdmin = await adminMoviesModel.find({Title:title})
             //console.log(pelisAdmin);
             return pelisAdmin
         }else{
@@ -98,7 +97,7 @@ const updateAdminMovies = async (req,res)=>{
 const deleteAdminMovies = async (req,res)=>{
     try {
         const data = req.body
-        console.log(data);
+        //console.log(data);
         if(data.Title){
             let peli = await adminMoviesModel.findOne({Title:data.Title})
             let result = await adminMoviesModel.deleteOne({Title:data.Title})
@@ -117,7 +116,7 @@ const deleteAdminMovies = async (req,res)=>{
 }
 
 module.exports = {
-    //searchAdminMovie,
+    searchAdminMovie,
     readAdminMovies,
     createAdminMovies,
     updateAdminMovies,
