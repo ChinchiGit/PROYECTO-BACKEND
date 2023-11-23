@@ -1,6 +1,7 @@
 const loginRouter = require('express').Router()
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const usersModel = require('../../models/users.model')
 
 require("../../config/auth");
 
