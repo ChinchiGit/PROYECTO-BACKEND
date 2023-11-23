@@ -5,15 +5,16 @@ const app = express()
 const port = 3000
 
 const helmet = require("helmet")
+// Set Content Security Policies
+const scriptSources = ["'self'", "'unsafe-inline'", "'unsafe-eval'"];
 
 app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
-      "img-src": ["'self'", "https:", "data:"],
-      "frame-src": ["'self'", "https://www.youtube.com", "https://youtube.com"],
-      "script-src": ["'self'", "https://www.youtube.com", "https://s.ytimg.com"],
-      "child-src": ["'self'", "https://www.youtube.com", "https://youtube.com"] // si estás usando iframes para YouTube
+      'defaultSrc': ["'self'"],
+      'scriptSrc': scriptSources,
+      "img-src": ["'self'", "https:", "data:"]
     }
   })
 );
