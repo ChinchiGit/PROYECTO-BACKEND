@@ -6,7 +6,17 @@ const port = 3000
 
 const helmet = require("helmet")
 
-app.use(helmet())
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https:", "data:"],
+      "frame-src": ["'self'", "https://www.youtube.com", "https://youtube.com"],
+      "script-src": ["'self'", "https://www.youtube.com", "https://s.ytimg.com"],
+      "child-src": ["'self'", "https://www.youtube.com", "https://youtube.com"] // si estás usando iframes para YouTube
+    }
+  })
+);
 
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
