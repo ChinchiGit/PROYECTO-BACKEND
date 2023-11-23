@@ -1,0 +1,22 @@
+doctype html
+html
+   head
+      title= `Films API - Error en ${lugar}`
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            include ./nav.pug
+            h1 Bienvenido Admin
+        main 
+            section
+                h2 Paneles de control: 
+                section 
+                    a(href="/dashboardAdmin")
+                        button(id='dummy') Administrador
+
+                    a(href="/dashboardUser")
+                        button(id='dummy') Usuario Standart
+                    
+        footer 
+            include ./footer.pug

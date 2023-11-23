@@ -7,10 +7,11 @@ html
    body
         header
             include ./nav.pug
-            h1  No se ha podido crear la pelicula 
+            h1 #{message}
         main 
             section
                 p error en : #{message}
+                p#timer
         footer 
             include ./footer.pug
-        script(src='/script.js')
+        script(src='/redirector.js')

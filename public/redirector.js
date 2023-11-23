@@ -1,4 +1,4 @@
-let count = 10; // Timer
+let count = 5; // Timer
 
 function countDown() {
         let timer = document.getElementById("timer"); // Timer ID
