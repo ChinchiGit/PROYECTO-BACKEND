@@ -25,14 +25,24 @@ loginRouter.get("/google/callBack?",
     passport.authenticate('google', { failureRedirect: '/auth/failure' }),
     //Función exitosa
     async (req, res) => {
-
+        //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
+        try {
+            //console.log(req.user._json)
+            console.log(req.user._json.email,req.user._json.sub,true)
+            const data = {email:req.user._json.email,id:req.user._json.sub,admin:false}
+            let answer = await usersModel.create(data);
+            
+        } catch (error) {
+            console.log(`ERROR: ${error.stack}`);
+            res.status(400).json({ msj: `ERROR: ${error.stack}` });
+        }
         //Estos son los pasos para crear un token si la autenticación es exitosa
         const payload = {
             //save here data
             check: true
         };
         const token = jwt.sign(payload, `secret_key`, {
-            expiresIn: "20m"
+            expiresIn: "25m"
         });
 
         //console.log(token);
@@ -82,7 +92,7 @@ loginRouter.get('/logout', (req, res) => {
     req.logout(function (err) {
         if (err) { return next(err); }
         req.session.destroy();
-        res.clearCookie("access-token").send('Goodbye! <br><br> <a href="/auth/google">Authenticate again</a>');
+        res.clearCookie("access-token").render("logout")
     });
 
 });
