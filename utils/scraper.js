@@ -37,12 +37,12 @@ const getReviews = async (id) => {
         }
 
         //print para development
-        golosinas.map((g,i)=> {
-            console.log(`--------review ${i+1}--------`);
-            console.log(g);
-            console.log("----------------");
+        // golosinas.map((g,i)=> {
+        //     console.log(`--------review ${i+1}--------`);
+        //     console.log(g);
+        //     console.log("----------------");
             
-        })
+        // })
 
         // Cerramos navegador.
         await browser.close();

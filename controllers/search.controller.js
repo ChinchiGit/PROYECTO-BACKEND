@@ -7,7 +7,7 @@ const displaySearchScreen = (req,res)=>{
 const searchMovieBytitle = async (req, res) => {
     try {
         let peliObtenida = await getFetch(req.params.title)
-        console.log(peliObtenida);
+        //console.log(peliObtenida);
         if (peliObtenida !== null) {
             peliObtenida.Search.forEach(element => {
                 if(element.Poster == "N/A"){

@@ -9,7 +9,7 @@
 // }
 
 const displayDashboardUser = (req,res)=>{
-    console.log('llega ?');
+    //console.log('llega ?');
     //sustituir por llamada a la funcion del controler de SQL
     let listaPrueba = [{Title:'hola1',Director:'yo1'},{Title:'hola2',Director:'yo2'},{Title:'hola3',Director:'yo3'}]
     res.render('user_dashboard',misPelisJs = listaPrueba)

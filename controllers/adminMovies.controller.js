@@ -98,7 +98,7 @@ const updateAdminMovies = async (req,res)=>{
 const deleteAdminMovies = async (req,res)=>{
     try {
         const data = req.body
-        console.log(data);
+        //console.log(data);
         if(data.Title){
             let peli = await adminMoviesModel.findOne({Title:data.Title})
             let result = await adminMoviesModel.deleteOne({Title:data.Title})

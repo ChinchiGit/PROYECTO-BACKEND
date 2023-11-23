@@ -7,7 +7,7 @@ const movie = {
 }
 
 favBtn.addEventListener('click', async function(event) {
-    console.log('holi');
+    //console.log('holi');
     const data =  await fetch ('/api/mispeliculas/createFavMovie', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
@@ -19,5 +19,5 @@ favBtn.addEventListener('click', async function(event) {
     body: JSON.stringify(movie), // body data type must match "Content-Type" header}
 }
 )
-console.log(data.json());
+//console.log(data.json());
 })
