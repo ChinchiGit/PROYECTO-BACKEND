@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// require('../config/db_mongo') // Conexión a BBDD MongoDB
+require('../config/db_mongo') // Conexión a BBDD MongoDB
 
 const objectSchema = {
     Title: { 
@@ -35,17 +35,7 @@ const objectSchema = {
     Actors: {
         type: String,
         required: true
-    },
-    Ratings: [
-        {
-            Value: {
-                type: String,
-                required: true
-            }
-        }
-    ],
-
-    
+    }
 };
 // Crear el esquema
 const filmAdminSchema = mongoose.Schema(objectSchema);

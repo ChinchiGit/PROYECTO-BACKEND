@@ -1,0 +1,28 @@
+doctype html
+html
+   head
+      title= "Films API - Listado películas Admin"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            include ./nav.pug 
+        main 
+            h1 Resultados
+            section 
+                each pelicula in resultados.Search
+                    section(class="pelisLista")
+                        article 
+                            img(src=pelicula.Poster class="posterLista")
+                        div(class="campos")
+                            h2 #{pelicula.Title}
+                        div(class="botones") 
+                            p YEAR: #{pelicula.Year}
+                            p DIRECTOR: #{pelicula.Director}
+                            p GENERE: #{pelicula.Genre}
+                            p RUNTIME : #{pelicula.Runtime}
+                            p PLOT : #{pelicula.Plot}
+                            p ACTORS: #{pelicula.Actors}              
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

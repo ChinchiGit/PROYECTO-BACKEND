@@ -15,7 +15,7 @@ const connectSQL = async () => {
     }
 };
 
-connectSQL();
+//connectSQL();
 
 
 module.exports = {

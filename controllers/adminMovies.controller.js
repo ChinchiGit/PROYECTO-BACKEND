@@ -1,60 +1,92 @@
 const adminMoviesModel = require('../models/filmAdmin.model');
 
-const searchAdminMovie = async(req,res)=>{
-    try {
-        const data = req.params;
-        if(data.title){
-            obj = {Title:data.title}
-            let adminMovie = await adminMoviesModel.find(obj)
-            res.status(200).json(adminMovie);
-        }else{
-            res.status(400).json({message: "formato de AdminMovie erroneo"});
-        }
-       
-    }
-    catch (error) {
-        console.log(`ERROR: ${error.stack}`);
-        res.status(400).json({msj:`ERROR: ${error.stack}`});
-    }
-}
+// const searchAdminMovie = async(req,res)=>{
+//     try {
+//         const data = req.params;
+//         if(data.title){
+//             obj = {Title:data.title}
+//             let adminMovies = await adminMoviesModel.find(obj)
+//             console.log(adminMovies);
+//             return []
+//         }else{
+//             return []
+//         }
+//     }
+//     catch (error) {
+//         console.log(`ERROR: ${error.stack}`);
+//     }
+// }
 
-const readAdminMovies = async (req,res)=>{
+const readAdminMovies = async ()=>{
     try {
+        let resultado = {}
         let adminMovies = await adminMoviesModel.find({})
-        res.status(200).json(adminMovies);
+        //console.log('readadminvomvies' ,adminMovies);
+        if(adminMovies){
+            resultado['Search'] = adminMovies
+        }else{
+            resultado['Search'] = []
+        }
+        return resultado
     }
     catch (error) {
         console.log(`ERROR: ${error.stack}`);
-        res.status(400).json({msj:`ERROR: ${error.stack}`});
     }
 }
 
 const createAdminMovies = async (req,res)=>{
     try {
         const data = req.body;
-        let answer = await new adminMoviesModel(data).save();
-        res.status(201).json({message: 'AdminMovie creado', AdminMovie: answer});
+        try {
+            let answer = await new adminMoviesModel(data).save();
+            if(answer){
+                if(answer._id){
+                    console.log('string answer -> ',answer);
+                    res.status(201).render('redirectOnMs',{texto:'Creada',pelicula:answer})
+                }else{
+                    let msg = 'error en creacion'
+                    res.status(400).render('400',{message:msg,lugar:'creacion peli'})
+                }
+            }else{
+                let msg = 'error en creacion'
+                res.status(400).render('400',{message: msg})
+            }
+        } catch (error) {
+            let msg = 'error en creacion titulo de pelicula duplicado intentalo de nuevo'
+            res.status(400).render('400',{message: msg})
+        }
     }
     catch (error) {
         console.log(`ERROR: ${error.stack}`);
-        res.status(400).json({msj:`ERROR: ${error.stack}`});
     }
 }
 
 const updateAdminMovies = async (req,res)=>{
+    //console.log('updateAdminMovies ?');
     try {
         const data = req.body
-        const id = data._id;
-        if(id){
-            let result = await adminMoviesModel.updateOne({_id:id},{$set :data})
-            if(result.matchedCount == 0)
-                res.status(400).json({message: `AdminMovie ${id} no encontrado`});
-            else if(result.modifiedCount == 0)
-                res.status(400).json({message: `AdminMovie ${id} no modificado`});
-            else if(result.acknowledged && result.modifiedCount > 0)
-                res.status(201).json({message: "AdminMovie actualizado",AdminMovie:{data}}); 
+        let peli = null
+        //console.log(data);
+        try{
+            peli = await adminMoviesModel.findOne({Title:data.Title})
+        }catch(error){
+            console.log(`internal mongo error on find new title: ${error.stack}`);
+        }
+        if(peli){
+            res.render('redirectOnMs',{texto:'NO editada , no existe o el tiitulo nuevo esta utilizado por otra pelicula',pelicula:null});
         }else{
-            res.status(400).json({message: "formato de AdminMovie erroneo"});
+            if(data.oldTitle){
+                let {oldTitle,...newData}=data
+                let result = await adminMoviesModel.updateOne({Title:oldTitle},{$set :newData})
+                if(result.matchedCount == 0)
+                    res.render('redirectOnMs',{texto:'No encontrada',pelicula:null});
+                else if(result.modifiedCount == 0)
+                    res.render('redirectOnMs',{texto:'No modificada',pelicula:null});
+                else if(result.acknowledged && result.modifiedCount > 0)
+                    res.render('redirectOnMs',{texto:'Editada',pelicula:newData}); 
+            }else{
+                res.render('redirectOnMs',{texto:'Formato incorrecto',pelicula:null});
+            }
         }
     }
     catch (error) {
@@ -66,15 +98,16 @@ const updateAdminMovies = async (req,res)=>{
 const deleteAdminMovies = async (req,res)=>{
     try {
         const data = req.body
-        const id = data._id;
-        if(id){
-            let result = await adminMoviesModel.deleteOne({company_name:id})
+        console.log(data);
+        if(data.Title){
+            let peli = await adminMoviesModel.findOne({Title:data.Title})
+            let result = await adminMoviesModel.deleteOne({Title:data.Title})
             if(result.deletedCount == 0)
-                res.status(400).json({message: `AdminMovie ${id} no encontrado`});
+                res.render('redirectOnMs',{texto:'No encontrada',pelicula:null});
             else
-                res.status(200).json({message: "AdminMovie BORRADO", AdminMovie:{data}})
+                res.render('redirectOnMs',{texto:'Borrada',pelicula:peli});
         }else{
-            res.status(400).json({message: "formato de AdminMovie erroneo"});
+            res.render('redirectOnMs',{texto:'Formato incorrecto',pelicula:null});
         }
     }
     catch (error) {
@@ -84,7 +117,7 @@ const deleteAdminMovies = async (req,res)=>{
 }
 
 module.exports = {
-    searchAdminMovie,
+    //searchAdminMovie,
     readAdminMovies,
     createAdminMovies,
     updateAdminMovies,
