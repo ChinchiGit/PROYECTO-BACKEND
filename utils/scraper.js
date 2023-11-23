@@ -24,25 +24,18 @@ const getReviews = async (id) => {
         await page.goto(url)
 
         //selecionamos los contenedores de las reviews
-        const reviews = await page.$$('.imdb-user-review')
+        let reviews = await page.$$('.imdb-user-review')
+
+        //recortamos a 3 reviews
+        reviews = reviews.splice(0,3)
 
         //itermaos en ellos 
         for (const el of reviews) {
-            //y cojemos el contenido de su elemento clase text
-            const textos = await el.$eval('.text', (element) => {
-                return element.innerHTML;
-            })
-            //almacenamos en objeto
-            golosinas.push(textos)
+            //almacenamos en objeto solo el texto
+            golosinas.push(await el.$eval('.text', (element) => {
+                return element.innerHTML ;
+            }))
         }
-
-        //print para development
-        // golosinas.map((g,i)=> {
-        //     console.log(`--------review ${i+1}--------`);
-        //     console.log(g);
-        //     console.log("----------------");
-            
-        // })
 
         // Cerramos navegador.
         await browser.close();
