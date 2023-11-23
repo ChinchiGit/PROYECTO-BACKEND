@@ -5,11 +5,15 @@ html
       link(rel="stylesheet", type='text/css', href="/normalice.css")
     
       link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
    body
         header
             include ./nav.pug 
         main 
-            h1 Bienvenido a tu espacio de usuario 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon04.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Tu espacio de usuario 
             include user_mispeliculas
 
         footer 

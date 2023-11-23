@@ -1,33 +1,26 @@
 doctype html
 html
    head
-      title= "Films API - Home"
+      title= "Films API - Login"
       link(rel="stylesheet", type='text/css', href="/normalice.css")
       link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
    body
         header
             include ./nav.pug
+        
         main 
+            section(class="titular")
+                    article(class="aTitular")
+                        img(src="/assets/imgs/icon06.png", alt="icono lupa" class="imgTitular")
+                    h1(class="hTitular") Autenticación
             section(class="login-container")
                 section 
-                  article(class="login-form")
-                        h1(class="login-title") Bienvenido a FILM API  
-                        h3 Ingresa tu email de usuario y contraseña o ingresa con tu cuenta Google 
-                        form(action="", method="post")  
-                            input(type="text" name="email" class="input-box" placeholder="example@gmail.com")
-                            br
-                            input(type="text" name="password" class="input-box" placeholder="*************")
-                            br
-                            input(type="submit" value="Login" id="login-btn")
-                            br
-                            a(href="")
-                            img(src="../assets/imgs/googleSignin.png" id="googleSignin") 
-                    article 
-                        a(id="recuperarPasword" href="") 
-                    
-                section 
-                    h4 Si no tienes cuenta, regístrate aquí
-                    button(id="registrar") Registro
+                    h3 Ingresa con tu cuenta Google 
+
+                    a(href="/auth/google")
+                        img(src="../assets/imgs/googleSignin.png" id="googleSignin") 
+
 
                 //dummy section for development
                 section 
