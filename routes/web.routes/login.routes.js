@@ -30,7 +30,7 @@ loginRouter.get("/google/callBack?",
             console.log(req.user._json.email,req.user._json.sub,true)
             const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
             let answer = await usersModel.create(data);
-            res.status(201).json(answer);
+            //res.json(answer);
         } catch (error) {
             console.log(`ERROR: ${error.stack}`);
             res.status(400).json({ msj: `ERROR: ${error.stack}` });
@@ -49,7 +49,7 @@ loginRouter.get("/google/callBack?",
         res.cookie("access-token", token, {
             httpOnly: true,
             sameSite: "strict",
-        }).redirect("/dashboard");
+        }).redirect("/dashboardUser");
     });
 
 
