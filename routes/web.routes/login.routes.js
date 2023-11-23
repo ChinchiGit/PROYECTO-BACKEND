@@ -29,6 +29,7 @@ loginRouter.get("/google/callBack?",
         //Estos son los pasos para crear un token si la autenticación es exitosa
         const payload = {
             //save here data
+            id_user:req.user._json.sub,
             check: true
         };
         const token = jwt.sign(payload, `secret_key`, {

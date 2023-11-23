@@ -28,7 +28,7 @@ const Users = db.define("Users", {
         db,
         modelName: 'Users',
         tableName: 'users',
-        timestamps: 'true',
+        timestamps: 'true', 
     }
 );
 

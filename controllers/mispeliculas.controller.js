@@ -1,7 +1,24 @@
+const cookieParser = require("cookie-parser");
+const jwt = require('jsonwebtoken');
 const misPeliculasModel = require("../models/mispeliculas.model");
+
 
 const readMovies = async (req, res) => {
   const id = req.params.id;
+  console.log(req.cookies["access-token"]);
+  const token = req.cookies["access-token"];
+
+/*     {
+    id_user: '111033985184608234477',
+    check: true,
+    iat: 1700740375,
+    exp: 1700741575
+  }
+*/
+  const decoded = jwt.decode(token); // ID user
+  console.log(decoded);
+
+  
   try {
     let movies = await moviesModel.findOne({ where: { id_user: id } });
     res.status(200).json(movies);
@@ -13,8 +30,41 @@ const readMovies = async (req, res) => {
 
 const createFavMovie = async (req, res) => {
   try {
-    const data = req.body;
-    let answer = await misPeliculasModel.create(data);
+    console.log(req.cookies["access-token"]);
+    const token = req.cookies["access-token"];
+
+/*     {
+      id_user: '111033985184608234477',
+      check: true,
+      iat: 1700740375,
+      exp: 1700741575
+    }
+ */
+    const decoded = jwt.decode(token); // ID user
+    console.log(decoded);
+
+
+    /*     {
+      'idFavMovie': '40f81110-87ba-11ee-84fa-91e9f718b7c4'
+  } */
+ 
+    const data = req.body;  
+    console.log(data);
+
+
+/*     {
+      'idUser': ???????, //borrar
+      'idFavMovie': '40f81110-87ba-11ee-84fa-91e9f718b7c4'
+  } */
+
+    const fav = {
+      "idUser" : decoded.id_user,
+      "idFavMovie" : data.idFavMovie
+    }
+
+    console.log(fav);
+
+    let answer = await misPeliculasModel.create(fav);
     res.status(201).json(answer);
   } catch (error) {
     console.log(`ERROR: ${error.stack}`);
