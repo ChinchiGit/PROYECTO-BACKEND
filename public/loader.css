@@ -10,8 +10,8 @@
 
 .loader .circle {
     position: absolute;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     opacity: 0;
     transform: rotate(225deg);
     animation-iteration-count: infinite;
@@ -25,7 +25,7 @@
     width: 6px;
     height: 6px;
     border-radius: 5px;
-    background: #fff;
+    background: #f0e115;
     box-shadow: 0 0 9px rgba(255, 255, 255, .7);
 }
 
