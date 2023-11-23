@@ -28,9 +28,9 @@ loginRouter.get("/google/callBack?",
         try {
             //console.log(req.user._json)
             console.log(req.user._json.email,req.user._json.sub,true)
-            const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
+            const data = {email:req.user._json.email,id:req.user._json.sub,admin:false}
             let answer = await usersModel.create(data);
-            res.status(201).json(answer);
+            
         } catch (error) {
             console.log(`ERROR: ${error.stack}`);
             res.status(400).json({ msj: `ERROR: ${error.stack}` });
@@ -41,7 +41,7 @@ loginRouter.get("/google/callBack?",
             check: true
         };
         const token = jwt.sign(payload, `secret_key`, {
-            expiresIn: "20m"
+            expiresIn: "25m"
         });
 
         console.log(token);
@@ -68,7 +68,7 @@ loginRouter.get('/logout', (req, res) => {
     req.logout(function (err) {
         if (err) { return next(err); }
         req.session.destroy();
-        res.clearCookie("access-token").send('Goodbye! <br><br> <a href="/auth/google">Authenticate again</a>');
+        res.clearCookie("access-token").render("logout")
     });
 
 });
