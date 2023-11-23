@@ -6,3 +6,5 @@
 
 #too much modules space XD
 node_modules
+
+package-lock.json
