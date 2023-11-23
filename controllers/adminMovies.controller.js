@@ -1,21 +1,21 @@
 const adminMoviesModel = require('../models/filmAdmin.model');
 
-// const searchAdminMovie = async(req,res)=>{
-//     try {
-//         const data = req.params;
-//         if(data.title){
-//             obj = {Title:data.title}
-//             let adminMovies = await adminMoviesModel.find(obj)
-//             console.log(adminMovies);
-//             return []
-//         }else{
-//             return []
-//         }
-//     }
-//     catch (error) {
-//         console.log(`ERROR: ${error.stack}`);
-//     }
-// }
+const searchAdminMovie = async(req,res)=>{
+    // atiende peticion de busqueda de peli admin si no existe peli en fetch
+    try {
+        const data = req.params;
+        if(data && data.title){
+            pelisAdmin = await adminMoviesModel.findOne({Title:data.Title})
+            //console.log(pelisAdmin);
+            return pelisAdmin
+        }else{
+            return []
+        }
+    }
+    catch (error) {
+        console.log(`ERROR: ${error.stack}`);
+    }
+}
 
 const readAdminMovies = async ()=>{
     try {

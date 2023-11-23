@@ -3,9 +3,6 @@ const adminMoviesRoutes = require('express').Router()
 
 const adminMoviesController = require('../../controllers/adminMovies.controller')
 
-//para recibir el trabajo delegado de la busqueda en mongo
-//adminMoviesRoutes.get('/adminMovies/:title',adminMoviesController.searchAdminMovie)
-
 //crud mongo
 adminMoviesRoutes.get('/adminMovies',async (req,res)=>{
     try {
@@ -26,10 +23,12 @@ adminMoviesRoutes.get('/adminMovies',async (req,res)=>{
 
 adminMoviesRoutes.post('/adminMovies',adminMoviesController.createAdminMovies)
 
+
+//html forms dont like put and delete
+
 adminMoviesRoutes.post('/adminMovies/put',adminMoviesController.updateAdminMovies)
 
 adminMoviesRoutes.post('/adminMovies/delete',adminMoviesController.deleteAdminMovies)
-
 
 //adminMoviesRoutes.put('/adminMovies',adminMoviesController.updateAdminMovies)
 
