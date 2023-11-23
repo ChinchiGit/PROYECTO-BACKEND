@@ -30,6 +30,11 @@ html
                         p PLOT : #{peliSeleccionada.Plot}
                         p ACTORS: #{peliSeleccionada.Actors}
                         p RATING: #{peliSeleccionada.Ratings[0].Value}
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon06.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Críticas:
+            
             section(class="criticas")
                 each val in reviews
                     article(class="critica")

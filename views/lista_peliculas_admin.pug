@@ -8,7 +8,10 @@ html
         header
             include ./navAdmin.pug 
         main 
-            h1 Resultados
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon06.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Películas añadidas por Admin a la API
             section 
                 each pelicula in resultados.Search
                     section(class="pelisLista")

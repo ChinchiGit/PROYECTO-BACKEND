@@ -162,6 +162,38 @@ button:hover {
 }
 
 
+/*HOME*/
+
+#headerHome{
+  margin:20px;
+  color: var(--golgMetallic);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-image: url("/assets/imgs/banner.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+#mainLogo{
+  max-height: 100px;
+}
+
+#mainTitularHome{
+  font-size: 75px;
+  font-family: Clover_extrabold;
+  margin-top: 10px;
+  margin-bottom:0px;
+
+}
+
+#pHome{
+  margin-top:0px;
+}
+
 /* VISTA DETALLES PELÍCULA */
 
 .tarjetaPeli {
@@ -259,7 +291,8 @@ div > h2 {
   margin: auto;
   margin-top: 15px;
   border-radius: 20px;
-  width:70%
+  width:70%;
+  max-width: 700px;
 }
 
 .login-form {

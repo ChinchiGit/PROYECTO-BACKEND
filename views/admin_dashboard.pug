@@ -7,37 +7,39 @@ html
       link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
    body
         header
-            include ./navAdmin.pug 
-            h1 Gestiona tus películas añadidas a la API
-            
-        main 
-            section 
+            include ./navAdmin.pug             
+        main
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon08.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Gestiona las películas de tu API 
+            section(class="login-container")
                 a(href="api/adminMovies") 
                     button(id="total") TOTAL PELÍCULAS APP 
                 button(id="crear") CREAR 
                 button(id="editar") EDITAR 
                 button(id="borrar") BORRAR
 
-            section(id="formularioCrear" class="esconder")
-                h3 Introduce los datos de la película que vas a añadir 
-                form(method="post" action="api/adminMovies", id="crearPeliAdmin") 
-                    include adminMovieFormFields
-                    input(type="submit" value="CREAR")
+                section(id="formularioCrear" class="esconder")
+                    h3 Introduce los datos de la película que vas a añadir 
+                    form(method="post" action="api/adminMovies", id="crearPeliAdmin") 
+                        include adminMovieFormFields
+                        input(type="submit" value="CREAR")
 
-            section(id="formularioEditar" class="esconder")
-                form(action="api/adminMovies/put" method="post" id="editarPeliAdmin")
-                    h3 Introduce el título de la película que vas a editar: 
-                    input(type="text" name="oldTitle" required)
-                    h3 Introduce los nuevos datos:
-                    include adminMovieFormFields
-                    input(type="submit" value="EDITAR")
+                section(id="formularioEditar" class="esconder")
+                    form(action="api/adminMovies/put" method="post" id="editarPeliAdmin")
+                        h3 Introduce el título de la película que vas a editar: 
+                        input(type="text" name="oldTitle" required)
+                        h3 Introduce los nuevos datos:
+                        include adminMovieFormFields
+                        input(type="submit" value="EDITAR")
 
 
-            section(id="formularioBorrar" class="esconder")
-                form(action="api/adminMovies/delete" method="post" id="borrarPeliAdmin")
-                    h3 Introduce el título de la película que vas a borrar
-                    input(type="text" name="Title" required) 
-                    input(type="submit" value="BORRAR")
+                section(id="formularioBorrar" class="esconder")
+                    form(action="api/adminMovies/delete" method="post" id="borrarPeliAdmin")
+                        h3 Introduce el título de la película que vas a borrar
+                        input(type="text" name="Title" required) 
+                        input(type="submit" value="BORRAR")
 
 
         footer 
