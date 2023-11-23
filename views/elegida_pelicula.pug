@@ -31,11 +31,10 @@ html
                         p ACTORS: #{peliSeleccionada.Actors}
                         p RATING: #{peliSeleccionada.Ratings[0].Value}
             section(class="criticas")
-                
-                    
-                        
-
-                
+                each val in reviews
+                    article(class="datosPelis")
+                        div(class="botones")
+                            p !{val}
 
         footer 
             include ./footer.pug
