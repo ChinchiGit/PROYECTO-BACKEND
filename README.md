@@ -99,7 +99,7 @@ La aplicación se ha desarrollado utilizando las siguientes **tecnologías**:
 
 - Frontend: PUG - Server Side Rendering
 - Backend: Node.js, Express
-- Dependencias: Parse Cookie, Jest, JSON Web Token, Mongoose, Passport, Passport Google Auth, Sequelize
+- Dependencias: Parse Cookie, JSON Web Token, Mongoose, Passport, Passport Google Auth, Sequelize
 - Base de datos: SQL, MongoDB
 - API: OMDB
 - Scraping: Puppeteer
