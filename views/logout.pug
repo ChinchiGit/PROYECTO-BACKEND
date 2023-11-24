@@ -1,0 +1,29 @@
+doctype html
+html
+   head
+      title= "Films API - Logout"
+
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='./styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+
+   body
+        header
+
+           
+        main 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon02.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") ¡Hasta otra! 
+            section(class="pelisLista")
+                article(class="datosLista")
+                    p(class="datosLista") Nos ha encantado verte por aquí. ¡Vuelve pronto! 
+                    a(href="/")
+                        button HOME  
+                
+
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

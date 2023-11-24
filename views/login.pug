@@ -1,0 +1,26 @@
+doctype html
+html
+   head
+      title= "Films API - Login"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+   body
+        header
+            include ./nav.pug
+        
+        main 
+            section(class="titular")
+                    article(class="aTitular")
+                        img(src="/assets/imgs/icon06.png", alt="icono lupa" class="imgTitular")
+                    h1(class="hTitular") Autenticación
+            section(class="login-container")
+                section 
+                    h3 Ingresa con tu cuenta Google 
+
+                    a(href="/auth/google")
+                        img(src="../assets/imgs/googleSignin.png" id="googleSignin") 
+           
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

@@ -1,0 +1,25 @@
+doctype html
+html
+   head
+      title= `Films API - Error en ${lugar}`
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            include ./navAdmin.pug 
+        main
+            section(class="titular")
+                    article(class="aTitular")
+                        img(src="/assets/imgs/icon02.png", alt="icono lupa" class="imgTitular")
+                    h1(class="hTitular") Bienvenido Admin 
+            section(class="login-container")
+                h2 Paneles de control: 
+                section 
+                    a(href="/dashboardAdmin")
+                        button(id='dummy') Administrador
+
+                    a(href="/dashboardUser")
+                        button(id='dummy') Usuario Standard 
+                    
+        footer 
+            include ./footer.pug

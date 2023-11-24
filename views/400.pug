@@ -1,0 +1,17 @@
+doctype html
+html
+   head
+      title= `Films API - Error en ${lugar}`
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            include ./nav.pug
+            h1 #{message}
+        main 
+            section
+                p error en : #{message}
+                p#timer
+        footer 
+            include ./footer.pug
+        script(src='/redirector.js')

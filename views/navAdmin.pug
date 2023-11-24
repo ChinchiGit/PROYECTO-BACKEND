@@ -1,0 +1,21 @@
+link(rel='stylesheet', type='text/css', href='/nav.styles.css')
+
+nav
+    div 
+        a(href="/dashboardAdmin") 
+            img(src="/assets/imgs/logo_smile.png", alt="Smile Cinema Icon" id="smileIcon")
+            
+    div(id="desplegable")
+        input(type="checkbox" id="menu")
+        label(for="menu" id="menu-icon") ☰ 
+
+        ul
+            li 
+                a(href="/dashboardAdmin") DASHBOARD ADMINISTRADOR
+            li 
+                a(href="/dashboardUser") DASHBOARD STANDART
+            li 
+                a(href="/logout") LOGOUT
+
+                
+

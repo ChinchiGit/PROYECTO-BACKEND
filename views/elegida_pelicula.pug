@@ -1,0 +1,47 @@
+doctype html
+html
+   head
+      title= "Films API - Película Elegida"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+   body
+        header
+            include ./nav.pug 
+            
+        main 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon03.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Película Elegida
+            section(class="tarjetaPeli")
+                article(class="poster") 
+                    img(src= peliSeleccionada.Poster)
+                    button(class="agregarFavoritos") Añadir a MIS PELÍCULAS
+                    
+                article(class="datosPelis")
+                    div(class="campos")
+                        h2 #{peliSeleccionada.Title}
+                    div(class="botones") 
+                        p YEAR: #{peliSeleccionada.Year}
+                        p DIRECTOR: #{peliSeleccionada.Director}
+                        p GENERE: #{peliSeleccionada.Genre}
+                        p RUNTIME : #{peliSeleccionada.Runtime}
+                        p PLOT : #{peliSeleccionada.Plot}
+                        p ACTORS: #{peliSeleccionada.Actors}
+                        p RATING: #{peliSeleccionada.Ratings[0].Value}
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon06.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Críticas:
+            
+            section(class="criticas")
+                each val in reviews
+                    article(class="critica")
+                        div(class="botones")
+                            p !{val}
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
+        script(src='/favorites.js')

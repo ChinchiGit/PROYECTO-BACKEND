@@ -1,0 +1,31 @@
+doctype html
+html
+   head
+      title= "Films API - Listado películas Admin"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+   body
+        header
+            include ./navAdmin.pug 
+        main 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon06.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Películas añadidas por Admin a la API
+            section 
+                each pelicula in resultados.Search
+                    section(class="pelisLista")
+                        article 
+                            img(src=pelicula.Poster class="posterLista")
+                        div(class="campos")
+                            h2 #{pelicula.Title}
+                        div(class="botones") 
+                            p YEAR: #{pelicula.Year}
+                            p DIRECTOR: #{pelicula.Director}
+                            p GENERE: #{pelicula.Genre}
+                            p RUNTIME : #{pelicula.Runtime}
+                            p PLOT : #{pelicula.Plot}
+                            p ACTORS: #{pelicula.Actors}              
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

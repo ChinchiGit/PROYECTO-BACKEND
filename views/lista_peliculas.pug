@@ -1,0 +1,50 @@
+doctype html
+html
+   head
+      title= "Films API - Listado películas"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel='stylesheet', type='text/css', href='/loader.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+   body
+        header
+            include ./nav.pug 
+            
+        main 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon05.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Resultados
+            form(action="/search/", method="post", class="formBusqueda") 
+                input.form-control(type='title', placeholder='Nueva búsqueda' name='title')
+                button(type="submit") Search
+
+               
+     
+            section 
+                each val in peliObtenida.Search
+                    section(class="pelisLista")
+                        article 
+                            img(src=val.Poster class="posterLista")
+                        article(class="datosLista")
+                            div
+                                h3= val.Title
+                                p= val.Year
+                            div
+                                a(href="/search/details/"+val.imdbID)
+                                    button(id="detalles") Ver detalles
+                                button( class="agregarFavoritos" id=val.imdbID value=val.imdbID) Añadir a MIS PELÍCULAS
+                                .loader.esconder
+                                    .bg
+                                        .circle
+                                        .circle
+                                        .circle
+                                        .circle
+                                        .circle    
+                
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
+        script(src='/favorites.js')
+        script(src='/loading.js')

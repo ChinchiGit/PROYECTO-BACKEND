@@ -1,0 +1,27 @@
+doctype html
+html
+   head
+      title= "Films API - Busca tu película"
+
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='./styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+
+   body
+        header
+            include ./nav.pug 
+           
+        main 
+            section(class="titular")
+                article(class="aTitular")
+                    img(src="/assets/imgs/icon01.png", alt="icono lupa" class="imgTitular")
+                h1(class="hTitular") Buscador de Películas
+            
+            form(action="/search/", method="post" class="formBusqueda") 
+                label(for="title") Introduce el título de la película que quieres consultar 
+                input.form-control(type='title', placeholder='Título' name='title')
+                button(type="submit") Search 
+
+        footer 
+            include ./footer.pug
+        script(src='/script.js')

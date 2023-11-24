@@ -1,0 +1,30 @@
+doctype html
+html
+   head
+      title= "Films API - Homepage"
+      link(rel="stylesheet", type='text/css', href="/normalice.css")
+      link(rel='stylesheet', type='text/css', href='/styles.css')
+      link(rel="shortcut icon", href="/assets/imgs/favicon.png", type="image/x-icon")
+   body
+        header(id="headerHome")
+            img(src="/assets/imgs/logo_smile.PNG", alt="Logo Smile Cinema" id="mainLogo")
+            section 
+                h1(id="mainTitularHome") SMILE CINEMA
+                p(id="pHome") YOUR FILMS API
+
+        main 
+            section
+                form(action="/search/", method="post" id="searchAndLogin" class="formBusqueda")
+                    h1 Busca tu película  
+                    label(for='movie')
+                    input.form-control(type='title', placeholder='   Título' name='title' id="searchBarBox")
+                    button(type="submit", name="searchBtn", id="searchBtn") Search
+                article(id="loginHome")
+                    a(href="/login") 
+                        button(type='button' id="login") Sign In / Registro
+
+
+           
+        footer 
+            include ./footer.pug
+        script(src='/script.js')
