@@ -55,7 +55,7 @@ const signUp = async (req, res) => {
             //si no existe creamos user
             //console.log('creacion user sql');
             let answer = await usersModel.create(data);
-            res.redirect("/dashboardUser");
+            res.redirect("/api/mispeliculas");
         }
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);
