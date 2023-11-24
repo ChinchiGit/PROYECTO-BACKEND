@@ -239,6 +239,11 @@ button:hover {
   width: 40%;
 }
 
+.posterAdmin {
+  width: 40%;
+  height: 40%;
+}
+
 div > p {
   background-color: var(--brunswickGreen);
   color: white;
