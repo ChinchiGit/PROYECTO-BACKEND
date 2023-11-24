@@ -4,20 +4,20 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-// const helmet = require("helmet")
-// // Set Content Security Policies
-// const scriptSources = ["'self'", "'unsafe-inline'", "'unsafe-eval'"];
+const helmet = require("helmet")
+// Set Content Security Policies
+const scriptSources = ["'self'", "'unsafe-inline'", "'unsafe-eval'"];
 
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     useDefaults: true,
-//     directives: {
-//       'defaultSrc': ["'self'"],
-//       'scriptSrc': scriptSources,
-//       "img-src": ["'self'", "https:", "data:"]
-//     }
-//   })
-// );
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      'defaultSrc': ["'self'"],
+      'scriptSrc': scriptSources,
+      "img-src": ["'self'", "https:", "data:"]
+    }
+  })
+);
 
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
