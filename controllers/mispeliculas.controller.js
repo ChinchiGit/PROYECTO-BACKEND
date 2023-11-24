@@ -92,7 +92,7 @@ const deleteFavMovie = async (req, res) => {
     // const id = data.id_user;
     // if (id) {
     let borrar = await misPeliculasModel.destroy({where: { idUser: decoded.id_user, idFavMovie: data}});
-    res.redirect("/api/mispeliculas");
+    res.render("user_mispeliculas");
     //   if (result.deletedCount == 0)
     //     res.status(400).json({ message: `User con ID ${id} no encontrado` });
     //   else
