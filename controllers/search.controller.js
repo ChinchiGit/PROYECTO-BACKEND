@@ -20,6 +20,7 @@ const searchMovieBytitle = async (req, res) => {
             });
             res.render("lista_peliculas", {peliObtenida});
         } else {
+            peliObtenida = {}
             //intento buscar en mongo
             let result = await searchAdminMovie(req.params.title)
             //console.log('retorno -> ',result);
