@@ -7,7 +7,7 @@ function countDown() {
             timer.innerHTML = "seras redirecionado en " + count + " segundos."; // Timer Message
             setTimeout("countDown()", 1000);
         } else {
-            window.location.href = "/"
+            window.location.href = "/dashboardAdmin"
         }
     }
 

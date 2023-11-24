@@ -9,7 +9,7 @@ const readMovies = async (req, res) => {
   //console.log(req.cookies["access-token"]);
   const token = req.cookies["access-token"];
 
-  console.log("token--> ",token);
+  //console.log("token--> ",token);
 
 /*     {
     id_user: '111033985184608234477',
@@ -19,7 +19,7 @@ const readMovies = async (req, res) => {
   }
 */
   const decoded = jwt.decode(token); // ID user
-  console.log(decoded);
+  //console.log(decoded);
   try {
     let movies = await misPeliculasModel.findAll({ where: { idUser: decoded.id_user } });
     console.log(movies);
@@ -28,7 +28,7 @@ const readMovies = async (req, res) => {
       let fetchFavoritos = await getDetailsFetch(movies[i].idFavMovie);
       peliSeleccionada.push(fetchFavoritos);
     }
-    console.log(peliSeleccionada);
+    //console.log(peliSeleccionada);
     res.render("user_mispeliculas", {peliSeleccionada});
   } catch (error) {
     console.log(`ERROR: ${error.stack}`);
@@ -38,7 +38,7 @@ const readMovies = async (req, res) => {
 
 const createFavMovie = async (req, res) => {
   try {
-    console.log(req.cookies["access-token"]);
+    //console.log(req.cookies["access-token"]);
     const token = req.cookies["access-token"];
 
 /*     {
@@ -49,7 +49,7 @@ const createFavMovie = async (req, res) => {
     }
  */
     const decoded = jwt.decode(token); // ID user
-    console.log(decoded);
+    //console.log(decoded);
 
 
     /*     {
@@ -57,7 +57,7 @@ const createFavMovie = async (req, res) => {
   } */
  
     const data = req.body;  
-    console.log(data);
+    //console.log(data);
 
 
 /*     {
@@ -70,7 +70,7 @@ const createFavMovie = async (req, res) => {
       "idFavMovie" : data.idFavMovie
     }
 
-    console.log(fav);
+    //console.log(fav);
 
     let answer = await misPeliculasModel.create(fav);
     res.redirect("/api/mispeliculas");
