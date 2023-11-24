@@ -27,7 +27,12 @@ for (let deleteFav of deleteFavs) {
         body: JSON.stringify(movie), // body data type must match "Content-Type" header}
         })
 
-        setTimeout(window.location.reload,1000)
+        if(data){
+            //aqui habria que añadir control de erores y solo refrescar
+            console.log(data);
+        }
+
+        location.reload()
 })
 }
 
