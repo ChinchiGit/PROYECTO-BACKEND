@@ -14,7 +14,7 @@ for (let favBtn of favBtns) {
         })
 
         if(data){
-            console.log(data);
+            // console.log(data);
         }
 })
 }

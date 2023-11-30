@@ -13,9 +13,9 @@ const searchAdminMovie = async(title)=>{
     try {
         //console.log("titulo",title);
         if(title){
-            console.log(title);
+            // console.log(title);
             let pelisAdmin = await adminMoviesModel.find({Title:title})
-            console.log(pelisAdmin);
+            // console.log(pelisAdmin);
             return pelisAdmin
         }else{
             return []

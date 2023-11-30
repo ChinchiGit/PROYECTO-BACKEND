@@ -10,11 +10,11 @@ const readMovies = async (req, res) => {
 
   const decoded = jwt.decode(token); // ID user
 
-  console.log(res);
+  // console.log(res);
   
   try {
     let movies = await misPeliculasModel.findAll({ where: { idUser: decoded.id_user } });
-    console.log(movies);
+    // console.log(movies);
     let peliSeleccionada = []
     for (let i=0; i<movies.length; i++){
       let fetchFavoritos = await getDetailsFetch(movies[i].idFavMovie);

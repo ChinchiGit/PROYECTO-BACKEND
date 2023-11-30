@@ -29,7 +29,7 @@ for (let deleteFav of deleteFavs) {
 
         if(data){
             //aqui habria que añadir control de erores y solo refrescar
-            console.log(data);
+            //console.log(data);
         }
 
         location.reload()
