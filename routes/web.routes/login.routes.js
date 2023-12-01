@@ -29,7 +29,7 @@ loginRouter.get("/google/callBack?",
             expiresIn: "20m"
         });
 
-        console.log(token);
+        // console.log(token);
         //Almacenamos el token en las cookies
         res.cookie("access-token", token, {
             httpOnly: true,
@@ -38,7 +38,7 @@ loginRouter.get("/google/callBack?",
 
         //En el cuerpo de esta función podemos almacenar usuarios en nuestra bbdd con el objeto que nos proporciona req.user (Para ello es necesario hacer la función asíncrona)
         try {
-            console.log(req.user._json.email,req.user._json.sub,true)
+            // console.log(req.user._json.email,req.user._json.sub,true)
             const data = {email:req.user._json.email,id:req.user._json.sub,admin:true}
             const tmpuser = await usersModel.findOne({ where: { email:data.email } })
             //buscamos si existe el usuario

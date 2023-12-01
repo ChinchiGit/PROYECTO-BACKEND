@@ -14,18 +14,19 @@ html
                 h1(class="hTitular") Películas añadidas por Admin a la API
             section 
                 each pelicula in resultados.Search
-                    section(class="pelisLista")
-                        article 
-                            img(src=pelicula.Poster class="posterLista")
-                        div(class="campos")
-                            h2 #{pelicula.Title}
-                        div(class="botones") 
-                            p YEAR: #{pelicula.Year}
-                            p DIRECTOR: #{pelicula.Director}
-                            p GENERE: #{pelicula.Genre}
-                            p RUNTIME : #{pelicula.Runtime}
-                            p PLOT : #{pelicula.Plot}
-                            p ACTORS: #{pelicula.Actors}              
+                    section(class="tarjetaPeli")
+                        article(class="poster") 
+                            img(src= pelicula.Poster class='posterAdmin')
+                        article(class="datosPelis")
+                            div(class="campos")
+                                h2 #{pelicula.Title}
+                            div(class="botones") 
+                                p YEAR: #{pelicula.Year}
+                                p DIRECTOR: #{pelicula.Director}
+                                p GENERE: #{pelicula.Genre}
+                                p RUNTIME : #{pelicula.Runtime}
+                                p PLOT : #{pelicula.Plot}
+                                p ACTORS: #{pelicula.Actors}              
         footer 
             include ./footer.pug
         script(src='/script.js')

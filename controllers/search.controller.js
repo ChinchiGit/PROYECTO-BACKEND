@@ -25,7 +25,9 @@ const searchMovieBytitle = async (req, res) => {
             let result = await searchAdminMovie(req.params.title)
             //console.log('retorno -> ',result);
             if (result !== null) {
-                peliObtenida['Search'] = [result]
+                //console.log('retorno -> ',result);
+                peliObtenida['Search'] = result
+                //console.log('peliobtenida -> ',peliObtenida);
                 res.render("lista_peliculas", {peliObtenida});
             } else {
                 //no existe pleli ni en fetch ni en mongo

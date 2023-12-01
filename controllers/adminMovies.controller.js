@@ -11,8 +11,11 @@ const adminMoviesModel = require('../models/filmAdmin.model');
 const searchAdminMovie = async(title)=>{
     // atiende peticion de busqueda de peli admin si no existe peli en fetch
     try {
+        //console.log("titulo",title);
         if(title){
+            // console.log(title);
             let pelisAdmin = await adminMoviesModel.find({Title:title})
+            // console.log(pelisAdmin);
             return pelisAdmin
         }else{
             return []
